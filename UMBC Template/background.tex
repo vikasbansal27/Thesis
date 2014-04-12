@@ -76,6 +76,10 @@ One such tool which preserves naturalness and improves color differentiability i
 \item{\textbf{O}: } Original set of colors as parsed from CSS files associated with the webpage.
 \item{\textbf{R}: } Replaced set of colors as computed by the recoloring algorithm. And obviously, size of \textbf{R} is always equal to size of \textbf{O}.
 \item{\textbf{P}: } Number of color \textit{pairs} in a web page. A \textit{pair} of colors from a web page is of the form \textit{(fg,bg)}, where \textit{fg} is a foreground text color and \textit{bg} is a background color. There can be many such \textit{(fg,bg)} color pairs. 
-\item{Naturalness[SPRweb]: } It is a measure of how close is set \textbf{R} to set \textbf{O}. Ideally, if our algorithm is able to find a set such that \textbf{R} = \textbf{O} then the naturalness will be maximum and the \textit{cost of naturalness} would be 0. \textit{Cost of naturalness} quantifies naturalness. We will define \textit{cost of naturalness} more precisely later in the document. 
+\item{\textbf{Perceptual naturalness[SPRweb]: }} It is a measure of how close is set \textbf{R} to set \textbf{O}. Ideally, if our algorithm is able to find a set such that \textbf{R} = \textbf{O} then the \textit{perceptual naturalness} will be maximum and the \textit{cost of naturalness} would be 0. \textit{Cost of naturalness} quantifies naturalness factor. As defined in SPRWeb[], \textit{cost of naturalness} can be quantified using the following expression:
+%pn = \frac{A}{N}
+\[ pn = \frac{1}{N}*\sum_{i=1}^{N} \Delta_{L_{ab}}(O_{i},R_{i})\]
+%*\sum_{i=1}^{N} \Delta_{L_{ab}}(O_{i},R_{i})
+
 \item{Inherited:} Inherited can further be classified in to three types:
 \end{itemize}
