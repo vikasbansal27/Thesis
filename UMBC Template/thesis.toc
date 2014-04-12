@@ -13,15 +13,16 @@
 \contentsline {section}{\numberline {2.1}Color Vision Deficiency (C.V.D.)}{3}
 \contentsline {section}{\numberline {2.2}Diagnosis}{5}
 \contentsline {section}{\numberline {2.3}Related Work}{5}
-\contentsline {chapter}{\numberline {Chapter{} 3}\uppercase {System Architecture}}{7}
+\contentsline {section}{\numberline {2.4}Definitions}{7}
+\contentsline {chapter}{\numberline {Chapter{} 3}\uppercase {System Architecture}}{8}
 \addvspace {10pt}
-\contentsline {section}{\numberline {3.1}SECTION-TITLE}{8}
-\contentsline {section}{\numberline {3.2}SECTION-TITLE}{8}
-\contentsline {subsection}{\numberline {3.2.1}SECTION-TITLE}{8}
-\contentsline {subsection}{\numberline {3.2.2}SECTION-TITLE}{8}
-\contentsline {chapter}{\numberline {Appendix{} A}\uppercase {APPENDIX-TITLE}}{9}
+\contentsline {section}{\numberline {3.1}SECTION-TITLE}{10}
+\contentsline {section}{\numberline {3.2}SECTION-TITLE}{10}
+\contentsline {subsection}{\numberline {3.2.1}SECTION-TITLE}{10}
+\contentsline {subsection}{\numberline {3.2.2}SECTION-TITLE}{10}
+\contentsline {chapter}{\numberline {Appendix{} A}\uppercase {APPENDIX-TITLE}}{11}
 \addvspace {10pt}
-\contentsline {section}{\numberline {A.1}SECTION-TITLE}{9}
-\contentsline {section}{\numberline {A.2}SECTION-TITLE}{9}
-\contentsline {subsection}{\numberline {A.2.1}SECTION-TITLE}{9}
-\contentsline {subsection}{\numberline {A.2.2}SECTION-TITLE}{9}
+\contentsline {section}{\numberline {A.1}SECTION-TITLE}{11}
+\contentsline {section}{\numberline {A.2}SECTION-TITLE}{11}
+\contentsline {subsection}{\numberline {A.2.1}SECTION-TITLE}{11}
+\contentsline {subsection}{\numberline {A.2.2}SECTION-TITLE}{11}

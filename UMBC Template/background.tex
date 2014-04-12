@@ -36,6 +36,33 @@ The Ishihara color test, which consists of a series of pictures of colored spots
 
 To test the type of color blindness users have, we did the Ishihara color test on each of them during our user study of the algorithm.
 
+% \begin{figure}[p]
+% 	\includegraphics{Ishihara1.PNG}	    
+% \end{figure}
+
+\begin{figure}
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{Ishihara1.PNG}
+  \caption{Plate No. 1 (12)}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{Ishihara2.PNG}
+  \caption{Plate No. 13 (6)}
+  \label{fig:sub2}
+\end{subfigure}
+\caption{Ishihara Test [Wikipedia]}
+\label{fig:test}
+\end{figure}
+
+% {\vspace{10mm}}
+% \includegraphics[width=0.4\linewidth]{Ishihara1.PNG}
+% \captionof{figure}{Ishihara Plate No. 1 (12) [Wikipaedia]}
+
+
 \section{Related Work}
 \label{Related Work}
 
@@ -43,3 +70,12 @@ Quite a work has been done to both simulate and correct CVD. Ichikawa et al. [16
 
 One such tool which preserves naturalness and improves color differentiability is kuhn’s tool. One improvement on naturalness preservation was done by David et al. in SPRWeb[]. Which is also the basis of this thesis. SPRWeb performs better in preserving naturalness and differentiability than Kuhn’s tool. But it fails to make sure than all the foreground background color pairs have the minimum required contrast ratio threshold of 4.5 as per W3C guidelines.
 
+\section{Definitions}
+\label{Related Work}
+\begin{itemize}
+\item{\textbf{O}: } Original set of colors as parsed from CSS files associated with the webpage.
+\item{\textbf{R}: } Replaced set of colors as computed by the recoloring algorithm. And obviously, size of \textbf{R} is always equal to size of \textbf{O}.
+\item{\textbf{P}: } Number of color \textit{pairs} in a web page. A \textit{pair} of colors from a web page is of the form \textit{(fg,bg)}, where \textit{fg} is a foreground text color and \textit{bg} is a background color. There can be many such \textit{(fg,bg)} color pairs. 
+\item{Naturalness[SPRweb]: } It is a measure of how close is set \textbf{R} to set \textbf{O}. Ideally, if our algorithm is able to find a set such that \textbf{R} = \textbf{O} then the naturalness will be maximum and the \textit{cost of naturalness} would be 0. \textit{Cost of naturalness} quantifies naturalness. We will define \textit{cost of naturalness} more precisely later in the document. 
+\item{Inherited:} Inherited can further be classified in to three types:
+\end{itemize}
