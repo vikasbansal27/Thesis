@@ -1,0 +1,130 @@
+\documentclass[12pt]{report}
+\usepackage{multirow}
+\usepackage{doublespace}
+\usepackage{csmthesis}
+\usepackage{aaai-bib}
+\usepackage{caption}
+%Place content-specific packages
+\usepackage{times}
+\usepackage{helvet}
+\usepackage{courier}
+\usepackage{pbox}
+\usepackage{amssymb}% http://ctan.org/pkg/amssymb
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\usepackage{array,booktabs}
+\newcolumntype{L}{@{}>{\kern\tabcolsep}l<{\kern\tabcolsep}}
+\usepackage{colortbl}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+%\usepackage{epsfig}
+%\usepackage{graphicx}
+%\usepackage{subfigure}
+
+%\usepackage{xspace}
+%\usepackage[leqno]{amsmath}
+%\usepackage{amssymb}
+%\usepackage{dsfont}
+
+%\bibliographystyle{mlapa}
+
+\usepackage{geometry}
+\geometry{verbose, letterpaper, dvips, tmargin=1in, lmargin=1.6in, rmargin=0.9in, bmargin=1in, total={6in,9in}, includeheadfoot, headsep=12pt}
+
+
+\tikzset{ 
+    table/.style={
+        matrix of nodes,
+        row sep=-\pgflinewidth,
+        column sep=-\pgflinewidth,
+        nodes={
+            rectangle,
+            draw=black,
+            align=center
+        },
+        minimum height=1.5em,
+        text depth=0.5ex,
+        text height=2ex,
+        nodes in empty cells,
+%%
+        every even row/.style={
+            nodes={fill=gray!20}
+        },
+        column 1/.style={
+            nodes={text width=3em,font=\bfseries}
+        },
+        row 1/.style={
+            nodes={
+                fill=black,
+                text=white,
+                font=\bfseries
+            }
+        }
+    }
+}
+
+\newcommand{\etal}{et al.\xspace}
+\newcommand{\eg}{e.g.,\xspace}
+\newcommand{\comment}[1]{}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+\def\newnot#1{\label{#1}}
+
+\def\ni{\noindent}
+\newcommand{\header}[1]{\noindent \bf{#1}\rm \\ \ni }
+\input{psfig.tex}
+
+\begin{document}
+\title{{\bf THESIS-TITLE}}
+\author{MY-FULL-NAME}
+\tolerance=1000
+\newpage
+\include{approvalsheet}
+\newpage
+\include{curriculumvitae}
+\newpage
+\include{abstract}
+\newpage
+\include{titlepage}
+\newpage
+\include{copyright}
+
+%\frontmatter
+\pagenumbering{roman}
+
+\newpage
+\setcounter{page}{2}
+\cleardoublepage
+\newpage
+\include{dedication}
+\cleardoublepage
+\include{acknowledgment}
+\cleardoublepage
+\tableofcontents
+\cleardoublepage
+\listoffigures
+\cleardoublepage
+\listoftables
+\cleardoublepage
+
+%\mainmatter
+\pagenumbering{arabic}
+\pagestyle{myheadings}
+\markright{}
+
+\include{introduction}
+\cleardoublepage
+\include{background}
+\cleardoublepage
+\include{systemArchitecture}
+\cleardoublepage
+\appendix
+\include{sampleAppendix}
+\cleardoublepage
+
+\thispagestyle{plain}
+\bibliographystyle{aaai}
+\bibliography{sampleBibliography}
+
+\end{document}

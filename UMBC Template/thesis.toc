@@ -1,0 +1,27 @@
+\contentsline {chapter}{\uppercase {Dedication}}{ii}
+\contentsline {chapter}{\uppercase {ACKNOWLEDGMENTS}}{iii}
+\contentsline {chapter}{\uppercase {List of Figures}}{vi}
+\contentsline {chapter}{\uppercase {List of Tables}}{vii}
+\contentsline {chapter}{\numberline {Chapter{} 1}\uppercase {Introduction}}{1}
+\addvspace {10pt}
+\contentsline {section}{\numberline {1.1}SECTION-TITLE}{2}
+\contentsline {section}{\numberline {1.2}SECTION-TITLE}{2}
+\contentsline {subsection}{\numberline {1.2.1}SECTION-TITLE}{2}
+\contentsline {subsection}{\numberline {1.2.2}SECTION-TITLE}{2}
+\contentsline {chapter}{\numberline {Chapter{} 2}\uppercase {Background and Related Work}}{3}
+\addvspace {10pt}
+\contentsline {section}{\numberline {2.1}Color Vision Deficiency (C.V.D.)}{3}
+\contentsline {section}{\numberline {2.2}Diagnosis}{5}
+\contentsline {section}{\numberline {2.3}Related Work}{5}
+\contentsline {chapter}{\numberline {Chapter{} 3}\uppercase {System Architecture}}{7}
+\addvspace {10pt}
+\contentsline {section}{\numberline {3.1}SECTION-TITLE}{8}
+\contentsline {section}{\numberline {3.2}SECTION-TITLE}{8}
+\contentsline {subsection}{\numberline {3.2.1}SECTION-TITLE}{8}
+\contentsline {subsection}{\numberline {3.2.2}SECTION-TITLE}{8}
+\contentsline {chapter}{\numberline {Appendix{} A}\uppercase {APPENDIX-TITLE}}{9}
+\addvspace {10pt}
+\contentsline {section}{\numberline {A.1}SECTION-TITLE}{9}
+\contentsline {section}{\numberline {A.2}SECTION-TITLE}{9}
+\contentsline {subsection}{\numberline {A.2.1}SECTION-TITLE}{9}
+\contentsline {subsection}{\numberline {A.2.2}SECTION-TITLE}{9}

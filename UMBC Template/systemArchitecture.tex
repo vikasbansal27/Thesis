@@ -1,0 +1,49 @@
+\chapter{System Architecture}
+\thispagestyle{plain}
+
+
+\label{System Architecture}
+In this chapter, we are going to present the approaches that we took to solve the problem in hand and then we will finally present our algorithm to recolor web pages.
+We started of with a very intuitive idea. We first figured out that what color is conflicting with the color schema of the web page. After we figure that out, we replace those conflicting colors such that there are no more conflicts. In this idea, we need an initial knowledge of what two colors would be conflicting. And in addition to this, we also need to know what would be the ‘safe colors’ which we can put in place of conflicting colors. To get an idea of this algorithm lets see the following example:
+
+For simplicity, lets assume that we are recoloring web pages which are developed using only the following set of colors. Lets call this set as \textbf{U}(Universal Set):
+\begin{enumerate}
+    \item Black(\#000000)
+    \item Blue(\#003366)
+    \item Orange(\#FF9900)
+    \item Yellow(\#FFCC00)
+    \item Red(\#FF0000)
+    \item Green(\#00FF00)
+    \item White(\#FFFFFF)
+\end{enumerate}
+
+To recolor web pages for a particular type of CVD, lets say Protanopia, we need a kind of table like this:
+
+{\vspace{10mm}}
+\begin{tikzpicture}
+\matrix (first) [table,text width=3em]
+{
+& Black & Blue & Orange & Yellow & Red & Green & White\\
+Black 	& \xmark & \cmark & \cmark & \cmark & \cmark & \cmark & \cmark \\
+Blue   	& \cmark & \xmark & \cmark & \cmark & \cmark & \cmark & \cmark \\
+Orange  & \cmark & \cmark & \xmark & \cmark & \xmark & \xmark & \cmark \\
+Yellow  & \cmark & \cmark & \cmark & \xmark & \cmark & \cmark & \xmark \\
+Red   	& \cmark & \cmark & \xmark & \cmark & \xmark & \xmark & \cmark \\
+Green   & \cmark & \cmark & \xmark & \cmark & \xmark & \xmark & \cmark\\
+White   & \cmark & \cmark & \cmark & \xmark & \cmark & \cmark & \xmark\\
+};
+\end{tikzpicture}
+\captionof{figure}{Sample Look Up Table}
+\label{Tick}
+
+\section{SECTION-TITLE}
+\label{SECTION-LABEL}
+
+\section{SECTION-TITLE}
+\label{SECTION-LABEL}
+
+\subsection{SECTION-TITLE}
+\label{SECTION-LABEL}
+
+\subsection{SECTION-TITLE}
+\label{SECTION-LABEL}
