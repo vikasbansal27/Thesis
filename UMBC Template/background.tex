@@ -161,11 +161,37 @@ Where $W_{ii}'s$ are weights corresponding to the factors. We can choose any val
 
 \item{\textbf{Subjective response space: }} \textit{Subjective response space} consists of three dimensions which can be formulated as follows using [Ou et all] model:
 
+
 \begin{figure}[!htb]
-  \centering
-\[ pd = \frac{1}{size(\textbf{P})}*\sum_{ (X,Y)\in P_{O},P_{R}}^{} |\Delta_{L_{ab}}(X_{f},X_{g}) - \Delta_{L_{ab}}(Y_{f},Y_{g}) |\]
+Activity(Active, Passive):
+\[ AP = -2.1+0.06\sqrt{(L\textsuperscript{*}-50)^{2} + (a\textsuperscript{*}-3)^{2} + (\frac{b\textsuperscript{*}-17}{1.4})^{2}} \]
+\end{figure}
+
+
+\begin{figure}[!htb]
+Temperature(Warm, Cool):
+\[ WC = -0.5+0.02(C\textsuperscript{*})^{1.07}cos(H\textsuperscript{*} - 50^{\circ} ) \]
+\end{figure}  
+
+
+\begin{figure}[!htb]
+Weight(Heavy, Light):
+\[ HL = -1.8+0.04(100-L\textsuperscript{*}) + 0.45cos(H\textsuperscript{*}-100^{\circ} ) \]
+\end{figure}
+
+
+\begin{figure}[!htb]
+Chroma:
+\[ C\textsuperscript{*} = \sqrt{a\textsuperscript{*}^2 + b\textsuperscript{*}^2}\]
+\end{figure}
+
+
+\begin{figure}[!htb]
+\vspace{-3.5mm}
+Hue:
+\[ H\textsuperscript{*} = arctan(b\textsuperscript{*},a\textsuperscript{*}) \]
   \begin{tabular}{@{}>{$}l<{$}l@{}}
-    P_{O} & Set of pairs in original web page.\\
+    L\textsuperscript{*}, a\textsuperscript{*} and  {\hspace{2mm}}  b\textsuperscript{*} & Dimensions of Lab color space\\
     P_{R} & Set of pairs in recolored web page. \\
     X & A pair of color in original web page thus a member of $P_{O}$.\\
     Y & Replacement of color pair X thus a member of $P_{R}$.\\
@@ -173,7 +199,6 @@ Where $W_{ii}'s$ are weights corresponding to the factors. We can choose any val
   	X_{g} and Y_{g} & \textit{bg} in pair X and Y respectively. \\
   \end{tabular}
 \end{figure}
-
 \end{itemize}
 
 
