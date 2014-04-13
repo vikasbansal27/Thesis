@@ -9,7 +9,7 @@ In this section we will learn about CVD and the existing related work to deal wi
 \label{Color Vision Deficiency}
 
 
-Color vision deficiency, is the inability or decreased ability to see color, or perceive color differences, under normal lighting conditions. Color blindness affects a significant percentage of the population.  There is no actual blindness but there is a deficiency of color vision. The most usual cause is a fault in the development of one or more sets of retinal cones that perceive color in light and transmit that information to the optic nerve. This type of color blindness is usually a sex-linked condition. The genes that produce photopigments are carried on the X chromosome; if some of these genes are missing or damaged, color blindness will be expressed in males with a higher probability than in females because males only have one X chromosome (in females, a functional gene on only one of the two X chromosomes is sufficient to yield the needed photopigments).
+Color vision deficiency, is the inability or decreased ability to see color, or perceive color differences, under normal lighting conditions. Color blindness affects a significant percentage of the population.  There is no actual blindness but there is a deficiency of color vision. The most usual cause is a fault in the development of one or more sets of retinal cones that perceive color in light and transmit that information to the optic nerve. This type of color blindness is usually a sex-linked condition. The genes that produce photo-pigments are carried on the X chromosome; if some of these genes are missing or damaged, color blindness will be expressed in males with a higher probability than in females because males only have one X chromosome (in females, a functional gene on only one of the two X chromosomes is sufficient to yield the needed photo-pigments).
 
 Color blindness can also be produced by physical or chemical damage to the eye, the optic nerve, or parts of the brain. For example, people with achromatopsia suffer from a completely different disorder, but are nevertheless unable to see colors.
 
@@ -73,13 +73,107 @@ One such tool which preserves naturalness and improves color differentiability i
 \section{Definitions}
 \label{Related Work}
 \begin{itemize}
-\item{\textbf{O}: } Original set of colors as parsed from CSS files associated with the webpage.
+\item{\textbf{O}: } Original set of colors as parsed from CSS files associated with the web page.
 \item{\textbf{R}: } Replaced set of colors as computed by the recoloring algorithm. And obviously, size of \textbf{R} is always equal to size of \textbf{O}.
 \item{\textbf{P}: } Number of color \textit{pairs} in a web page. A \textit{pair} of colors from a web page is of the form \textit{(fg,bg)}, where \textit{fg} is a foreground text color and \textit{bg} is a background color. There can be many such \textit{(fg,bg)} color pairs. 
 \item{\textbf{Perceptual naturalness[SPRweb]: }} It is a measure of how close is set \textbf{R} to set \textbf{O}. Ideally, if our algorithm is able to find a set such that \textbf{R} = \textbf{O} then the \textit{perceptual naturalness} will be maximum and the \textit{cost of naturalness} would be 0. \textit{Cost of naturalness} quantifies naturalness factor. As defined in SPRWeb[], \textit{cost of naturalness} can be quantified using the following expression:
-%pn = \frac{A}{N}
-\[ pn = \frac{1}{N}*\sum_{i=1}^{N} \Delta_{L_{ab}}(O_{i},R_{i})\]
-%*\sum_{i=1}^{N} \Delta_{L_{ab}}(O_{i},R_{i})
 
-\item{Inherited:} Inherited can further be classified in to three types:
+\begin{figure}[!htb]
+  \centering
+\[ pn = \frac{1}{N}*\sum_{i=1}^{N} \Delta_{L_{ab}}(O_{i},R_{i})\]
+  \begin{tabular}{@{}>{$}l<{$}l@{}}
+    N & Size of \textbf{O}.\\
+    \Delta_{L_{ab}} & Euclidean distance in Lab color space. \\
+  \end{tabular}
+\end{figure}
+
+
+
+Lab color space is explained in the next section. A \textit{low} value of \textit{pn} is highly desirable. A \textit{low} value of \textit{pn} as compared to a high value, essentially tells us that the recolored web page having \textit{low} value is closer to original web page in terms of colors. 
+Optimizing the value of \textit{pn} while computing the recolored set \textbf{R} makes sure that the recolored version does not have abrupt colors as compared to the original version. 
+
+\item{\textbf{Perceptual differentiability[SPRweb]: }} This factor maintains the differentiability among colors belonging to a pair in the original web page. Suppose the original web page has only one color pair, i.e size of \textbf{P} is 1. And the pair is \textit{(Red,White)}, then the recolored pair should have colors such that the difference in original pair should be maintained to its best possible extent. This factor can be quantified using the following equation:
+
+
+
+\begin{figure}[!htb]
+  \centering
+\[ pd = \frac{1}{size(\textbf{P})}*\sum_{ (X,Y)\in P_{O},P_{R}}^{} |\Delta_{L_{ab}}(X_{f},X_{g}) - \Delta_{L_{ab}}(Y_{f},Y_{g}) |\]
+  \begin{tabular}{@{}>{$}l<{$}l@{}}
+    P_{O} & Set of pairs in original web page.\\
+    P_{R} & Set of pairs in recolored web page. \\
+    X & A pair of color in original web page thus a member of $P_{O}$.\\
+    Y & Replacement of color pair X thus a member of $P_{R}$.\\
+    X_{f} and Y_{f} & \textit{fg} in pair X and Y respectively.\\
+  	X_{g} and Y_{g} & \textit{bg} in pair X and Y respectively. \\
+  \end{tabular}
+\end{figure}
+
+\item{\textbf{Subjective naturalness[SPRweb]: }} We need this factor in optimizing function to keep the subjective responses of users as is. For example, using this in optimization we can keep \textit{warm} colors \textit{warm} or \textit{heavy} colors \textit{heavy}. We are using subjective response model developed by [Ou et all] to compute the subjectivity factor. To preserve subjectivity of colors in original web page, we use \textit{subjective response space}. We discuss \textit{subjective response space} in detail in future sections. Subjective naturalness cost can be quantified as follows:
+
+\begin{figure}[!htb]
+  \centering
+\[ srn = \frac{1}{N}*\sum_{i=1}^{N} \O_{u}(O_{i},R_{i})\]
+  \begin{tabular}{@{}>{$}l<{$}l@{}}
+    N & Size of \textbf{O}.\\
+    \O_{u} & Euclidean distance in subjective response space. \\
+  \end{tabular}
+\end{figure}
+
+\item{\textbf{Subjective differentiability[SPRweb]: }} Similar to perceptual differentiability, subjective differentiability should be maintained among pairs of colors parsed from original web page. We again use \textit{subjective response space} to quantify this factor as follows:
+
+\begin{figure}[!htb]
+  \centering
+\[ spd = \frac{1}{size(\textbf{P})}*\sum_{ (X,Y)\in P_{O},P_{R}}^{} |\O_{u}(X_{f},X_{g}) - \O_{u}(Y_{f},Y_{g}) |\]
+  \begin{tabular}{@{}>{$}l<{$}l@{}}
+    P_{O} & Set of pairs in original web page.\\
+    P_{R} & Set of pairs in recolored web page. \\
+    X & A pair of color in original web page thus a member of $P_{O}$.\\
+    Y & Replacement of color pair X thus a member of $P_{R}$.\\
+    X_{f} and Y_{f} & \textit{fg} in pair X and Y respectively.\\
+  	X_{g} and Y_{g} & \textit{bg} in pair X and Y respectively. \\
+  \end{tabular}
+\end{figure}
+
+\item{\textbf{Cost function: }} = $W_{pn}*pn$ + $W_{pd}*pd$ + $W_{spn}*spn$ + $W_{spd}*spd$
+
+Where $W_{ii}'s$ are weights corresponding to the factors. We can choose any value for these factors depending upon the requirement. We keep a value 1 for all of them to treat all factors equally.    
+
+\section{Color spaces}
+\label{color spaces}
+
+\item{\textbf{Lab color space: }} A Lab color space is a color-opponent space with dimension L for lightness and a and b for the color-opponent dimensions, based on nonlinearly compressed CIE XYZ color space coordinates. The three coordinates of CIELAB represent the lightness of the color (L\textsuperscript{*} = 0 yields black and L\textsuperscript{*} = 100 indicates diffuse white; specular white may be higher), its position between red/magenta and green (a\textsuperscript{*}, negative values indicate green while positive values indicate magenta) and its position between yellow and blue (b\textsuperscript{*}, negative values indicate blue and positive values indicate yellow)[wikipedia]. The range of the three coordinates is as follows:
+\begin{figure}[!htb]
+  \centering
+\begin{tabular}{@{}>{$}l<{$}l@{}}
+    L\textsuperscript{*}\in&[0,100]\\
+    a\textsuperscript{*}\in&[-127,128] \\
+    b\textsuperscript{*}\in&[-127,128]\\
+  \end{tabular}
+\end{figure}
+
+\textbf{Why did we use Lab color space? }\\
+\begin{itemize} 
+\item{Lab color is designed to approximate human vision. It aspires to perceptual uniformity, and its L\textsuperscript{*} component closely matches human perception of lightness.}
+\item{The L\textsuperscript{*}a\textsuperscript{*}b\textsuperscript{*} color space includes all perceivable colors which means that its gamut exceeds those of the RGB and CMYK color models (for example, ProPhoto RGB includes about 90\% all perceivable colors).}
+\item{One of the most important attributes of the L\textsuperscript{*}a\textsuperscript{*}b\textsuperscript{*}-model is device independence. This means that the colors are defined independent of their nature of creation or the device they are displayed on. The L\textsuperscript{*}a\textsuperscript{*}b\textsuperscript{*} color space is used e.g. in Adobe Photoshop when graphics for print have to be converted from RGB to CMYK, as the L\textsuperscript{*}a\textsuperscript{*}b\textsuperscript{*} gamut includes both the RGB and CMYK gamut.}
 \end{itemize}
+
+\item{\textbf{Subjective response space: }} \textit{Subjective response space} consists of three dimensions which can be formulated as follows using [Ou et all] model:
+
+\begin{figure}[!htb]
+  \centering
+\[ pd = \frac{1}{size(\textbf{P})}*\sum_{ (X,Y)\in P_{O},P_{R}}^{} |\Delta_{L_{ab}}(X_{f},X_{g}) - \Delta_{L_{ab}}(Y_{f},Y_{g}) |\]
+  \begin{tabular}{@{}>{$}l<{$}l@{}}
+    P_{O} & Set of pairs in original web page.\\
+    P_{R} & Set of pairs in recolored web page. \\
+    X & A pair of color in original web page thus a member of $P_{O}$.\\
+    Y & Replacement of color pair X thus a member of $P_{R}$.\\
+    X_{f} and Y_{f} & \textit{fg} in pair X and Y respectively.\\
+  	X_{g} and Y_{g} & \textit{bg} in pair X and Y respectively. \\
+  \end{tabular}
+\end{figure}
+
+\end{itemize}
+
+

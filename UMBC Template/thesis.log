@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.4.11)  12 APR 2014 14:53
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.4.11)  12 APR 2014 21:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -889,7 +889,22 @@ Missing character: There is no ™ in font ptmr7t!
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
- [6 <./Ishihara1.PNG> <./Ishihara2.PNG>]) [7]
+ [6 <./Ishihara1.PNG> <./Ishihara2.PNG>] [7] [8]
+
+LaTeX Warning: Command \O invalid in math mode on input line 116.
+
+
+LaTeX Warning: Command \O invalid in math mode on input line 127.
+
+
+LaTeX Warning: Command \O invalid in math mode on input line 127.
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 155--156
+
+ []
+
+[10]) [11]
 \openout2 = `systemArchitecture.aux'.
 
  (./systemArchitecture.tex
@@ -900,7 +915,7 @@ Missing character: There is no ˜ in font ptmr7t!
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
-[8
+[12
 
 
 
@@ -920,12 +935,12 @@ Package caption Warning: \captionsetup{type*=...} or \captionof
 (caption)                outside box or environment on input line 36.
 See the caption package documentation for explanation.
 
-) [9] [10]
+) [13] [14]
 \openout2 = `sampleAppendix.aux'.
 
  (./sampleAppendix.tex
 Appendix A.
-) [11
+) [15
 
 
 
@@ -941,13 +956,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 14070 strings out of 495059
- 255027 string characters out of 3182030
- 323049 words of memory out of 3000000
- 16837 multiletter control sequences out of 15000+200000
- 23219 words of font info for 53 fonts, out of 3000000 for 9000
+ 14078 strings out of 495059
+ 255127 string characters out of 3182030
+ 323067 words of memory out of 3000000
+ 16844 multiletter control sequences out of 15000+200000
+ 26349 words of font info for 58 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 56i,14n,75p,1544b,907s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 56i,15n,75p,1544b,907s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist
@@ -955,14 +970,15 @@ f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist
 type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on thesis.pdf (23 pages, 1058137 bytes).
+cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
+y8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/urw/times/utmri8a.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/urw/zapfding/uzdr.pfb>
+Output written on thesis.pdf (27 pages, 1082705 bytes).
 PDF statistics:
- 131 PDF objects out of 1000 (max. 8388607)
- 90 compressed objects within 1 object stream
+ 149 PDF objects out of 1000 (max. 8388607)
+ 102 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 
