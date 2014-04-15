@@ -4,7 +4,8 @@
 
 \label{System Architecture}
 In this chapter, we are going to present the approaches that we took to solve the problem in hand and then we will finally present our algorithm to recolor web pages.
-We started of with a very intuitive idea. We first figured out that what color is conflicting with the color schema of the web page. After we figure that out, we replace those conflicting colors such that there are no more conflicts. In this idea, we need an initial knowledge of what two colors would be conflicting. And in addition to this, we also need to know what would be the ‘safe colors’ which we can put in place of conflicting colors. To get an idea of this algorithm lets see the following example:
+
+We started of with a very intuitive idea. We first figured out that which colors are conflicting with rest of the color schema of the web page. After we figure that out, we replace those colors such that there are no more conflicts. In this idea, we need an initial knowledge of what two colors would be conflicting. And in addition to this, we also need to know what would be the ‘safe colors’ which we can put in place of conflicting colors. To get an idea of this algorithm lets see the following example:
 
 For simplicity, lets assume that we are recoloring web pages which are developed using only the following set of colors. Lets call this set as \textbf{U}(Universal Set):
 \begin{enumerate}
@@ -37,7 +38,91 @@ White   & \cmark & \cmark & \cmark & \xmark & \cmark & \cmark & \xmark\\
 \label{Tick}
 
 This look up table can help us determine the \textit{conflict} of colors in a webpage. A \textit{conflict} is defined as a situation when two or more colors are seen as similar color by a CVD person, leading to very low differentiability amongst the colors. And since the differentiability is low, one of them should be replaced with a color that can relatively increase the differentiability.
- 
+
+\begin{figure}[!htb]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{hru1.png}
+  \caption{As seen by a normal person}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{hru2.png}
+  \caption{As seen by CVD person (Protanopia)}
+  \label{fig:sub2}
+\end{subfigure}
+\caption{Example of conflict}
+\label{fig:test}
+\end{figure}
+
+As we can see in Fig 3.2(a), two colors having hue properties as Orange and Green map to colors of similar hues, leading to conflict for a CVD person. LUT in Fig 3.1 lists all such conflicts for colors in \textbf{U} which can be experimentally determined.   \\ 
+
+
+
+\textbf{Safe colors}
+
+
+\textit{Safe colors} are the colors which can replace the \textit{conflicting} colors, removing the existing conflict and causing no more additional conflicts. For the given set \textbf{U}, some of the safe colors can be:
+
+\begin{enumerate}
+    \item ColorA \#CC00FF
+	\item ColorB \#669999
+	\item ColorC \#003300
+\end{enumerate} 
+
+
+So our table in Fig 2.1 would look something like this now:
+
+{\vspace{10mm}}
+\begin{tikzpicture}
+\matrix (first) [table,text width=3em]
+{
+& Black & Blue & Orange & Yellow & Red & Green & White & ColorA & ColorB & ColorC\\
+Black 	& \xmark & \cmark & \cmark & \cmark & \cmark & \cmark & \cmark & \cmark & \cmark & \cmark\\
+Blue   	& \cmark & \xmark & \cmark & \cmark & \cmark & \cmark & \cmark & \cmark & \cmark & \cmark\\
+Orange  & \cmark & \cmark & \xmark & \cmark & \xmark & \xmark & \cmark & \cmark & \cmark & \cmark\\
+Yellow  & \cmark & \cmark & \cmark & \xmark & \cmark & \cmark & \xmark & \cmark & \cmark & \cmark\\
+Red   	& \cmark & \cmark & \xmark & \cmark & \xmark & \xmark & \cmark & \cmark & \cmark & \cmark\\
+Green   & \cmark & \cmark & \xmark & \cmark & \xmark & \xmark & \cmark & \cmark & \cmark & \cmark\\
+White   & \cmark & \cmark & \cmark & \xmark & \cmark & \cmark & \xmark & \cmark & \cmark & \cmark\\
+ColorA   & \cmark & \cmark & \cmark & \cmark & \cmark & \cmark & \cmark & \xmark & \cmark & \cmark\\
+ColorB   & \cmark & \cmark & \cmark & \cmark & \cmark & \cmark & \cmark & \cmark & \xmark & \cmark\\
+ColorC   & \cmark & \cmark & \cmark & \cmark & \cmark & \cmark & \cmark & \cmark & \cmark & \xmark\\
+};
+\end{tikzpicture}
+\captionof{figure}{Sample Look Up Table (LUT)}
+\label{Tick}
+
+\textbf{Recoloring algorithm using LUT and safe colors}
+
+
+An algorithm such as Algorithm 1 can be implemented to recolor web pages.
+
+\makeatletter
+\def\BState{\State\hskip-\ALG@thistlm}
+\makeatother
+
+\begin{algorithm}[!htb]
+\caption{Recoloring 1.1}\label{euclid}
+\begin{algorithmic}[1]
+\Procedure{MyProcedure(CSSFile)}{}
+\State ${ColorsHex} \gets \text{CSSParser(CSSFile)}$ 
+\For{$i \gets 1 \textrm{ to } ColorsHex.length$}
+        \For{$j \gets 1 \textrm{ to } ColorsHex.length$}
+        	\If {LUT[$i$][$j$] == 0}
+        		\State $ColorsHex[i] = S[S.length]$
+        		\State $S.length = S.length - 1$
+        	\EndIf
+        \EndFor
+      \EndFor
+\State $NewCSSFile = ReplaceColors(CSSFile, ColorsHex)$
+\State \textbf{return} $NewCSSFile$
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
 \section{SECTION-TITLE}
 \label{SECTION-LABEL}
 

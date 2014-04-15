@@ -17,13 +17,13 @@
 \contentsline {section}{\numberline {2.5}Color spaces}{10}
 \contentsline {chapter}{\numberline {Chapter{} 3}\uppercase {System Architecture}}{13}
 \addvspace {10pt}
-\contentsline {section}{\numberline {3.1}SECTION-TITLE}{15}
-\contentsline {section}{\numberline {3.2}SECTION-TITLE}{15}
-\contentsline {subsection}{\numberline {3.2.1}SECTION-TITLE}{15}
-\contentsline {subsection}{\numberline {3.2.2}SECTION-TITLE}{15}
-\contentsline {chapter}{\numberline {Appendix{} A}\uppercase {APPENDIX-TITLE}}{16}
+\contentsline {section}{\numberline {3.1}SECTION-TITLE}{16}
+\contentsline {section}{\numberline {3.2}SECTION-TITLE}{16}
+\contentsline {subsection}{\numberline {3.2.1}SECTION-TITLE}{16}
+\contentsline {subsection}{\numberline {3.2.2}SECTION-TITLE}{16}
+\contentsline {chapter}{\numberline {Appendix{} A}\uppercase {APPENDIX-TITLE}}{17}
 \addvspace {10pt}
-\contentsline {section}{\numberline {A.1}SECTION-TITLE}{16}
-\contentsline {section}{\numberline {A.2}SECTION-TITLE}{16}
-\contentsline {subsection}{\numberline {A.2.1}SECTION-TITLE}{16}
-\contentsline {subsection}{\numberline {A.2.2}SECTION-TITLE}{16}
+\contentsline {section}{\numberline {A.1}SECTION-TITLE}{17}
+\contentsline {section}{\numberline {A.2}SECTION-TITLE}{17}
+\contentsline {subsection}{\numberline {A.2.1}SECTION-TITLE}{17}
+\contentsline {subsection}{\numberline {A.2.2}SECTION-TITLE}{17}
