@@ -5,6 +5,8 @@
 \label{System Architecture}
 In this chapter, we are going to present the approaches that we took to solve the problem in hand and then we will finally present our algorithm to recolor web pages.
 
+\section{Initial thoughts and approaches}
+\label{Initial approaches}
 We started of with a very intuitive idea. We first figured out that which colors are conflicting with rest of the color schema of the web page. After we figure that out, we replace those colors such that there are no more conflicts. In this idea, we need an initial knowledge of what two colors would be conflicting. And in addition to this, we also need to know what would be the ‘safe colors’ which we can put in place of conflicting colors. To get an idea of this algorithm lets see the following example:
 
 For simplicity, lets assume that we are recoloring web pages which are developed using only the following set of colors. Lets call this set as \textbf{U}(Universal Set):
@@ -75,7 +77,7 @@ As we can see in Fig 3.2(a), two colors having hue properties as Orange and Gree
 
 So our table in Fig 2.1 would look something like this now:
 
-{\vspace{10mm}}
+%{\vspace{10mm}}
 \begin{tikzpicture}
 \matrix (first) [table,text width=3em]
 {
@@ -107,30 +109,138 @@ An algorithm such as Algorithm 1 can be implemented to recolor web pages.
 \begin{algorithm}[!htb]
 \caption{Recoloring 1.1}\label{euclid}
 \begin{algorithmic}[1]
-\Procedure{MyProcedure(CSSFile)}{}
-\State ${ColorsHex} \gets \text{CSSParser(CSSFile)}$ 
+\Procedure{RecolorWeb(CSSFile)}{}
+\State ${ColorsHex,ColorMap} \gets \textit{CSSParser(CSSFile)}$ 
 \For{$i \gets 1 \textrm{ to } ColorsHex.length$}
         \For{$j \gets 1 \textrm{ to } ColorsHex.length$}
         	\If {LUT[$i$][$j$] == 0}
-        		\State $ColorsHex[i] = S[S.length]$
-        		\State $S.length = S.length - 1$
+        		\State $ColorsHex[i] \gets S[S.length]$
+        		\State $S.length \gets S.length - 1$
         	\EndIf
         \EndFor
       \EndFor
-\State $NewCSSFile = ReplaceColors(CSSFile, ColorsHex)$
+\State $NewCSSFile \gets ReplaceColors(CSSFile, ColorsHex, ColorMap)$
+\State \textbf{return} $NewCSSFile$
+\EndProcedure
+\Procedure{CSSParser(CSSFile)}{}
+\State $a \gets readLine(CSSFile)$
+\State $j \gets 1$
+\While{$a \neq EOF$}
+    \If {$re.find(\#xxxxxx || rgb(r,g,b) || hsl(h,s,l)) == \textbf{true}$}
+    \State $Colors[j] \gets a[StartOfFind:EndOfFind]$
+    \State $ColorMap[j++] \gets (StartOfFind,EndOfFind)$
+    \EndIf
+    \State $a \gets readLine(CSSFile)$
+  \EndWhile
+\For{$i \gets 1 \textrm{ to } Colors.length$}
+\State $ColorsHex[$i$] \gets ToHex(Colors[i])$
+\EndFor
+\State \textbf{return} $ColorsHex, ColorMap$
+\EndProcedure
+\Procedure{ReplaceColors(CSSFile, ColorsHex, ColorMap)}{}
+\State $a \gets readLine(CSSFile)$
+\State $j \gets 1$
+\While{$a \neq EOF$}
+    \If {$re.find(\#xxxxxx || rgb(r,g,b) || hsl(h,s,l)) == \textbf{true}$}
+    \State $a[ColorMap[j][0]:ColorMap[j][1]] \gets ColorsHex[j++]$ 
+    \EndIf
+    \State $a \gets readLine(CSSFile)$
+  \EndWhile
 \State \textbf{return} $NewCSSFile$
 \EndProcedure
 \end{algorithmic}
 \end{algorithm}
 
-\section{SECTION-TITLE}
-\label{SECTION-LABEL}
 
-\section{SECTION-TITLE}
-\label{SECTION-LABEL}
+Another way of recoloring web pages could be to recolor them entirely using a predefined set of non-conflicting colors. Information on how to obtain these safe sets is provided in next section. We can perform Algorithm 2 utilizing these existing sets to recolor web pages:
 
-\subsection{SECTION-TITLE}
-\label{SECTION-LABEL}
+
+\makeatletter
+\def\BState{\State\hskip-\ALG@thistlm}
+\makeatother
+
+\begin{algorithm}[!htb]
+\caption{Recoloring 1.2}\label{Recolor 1.2}
+\begin{algorithmic}[1]
+\Procedure{RecolorWeb(CSSFile)}{}
+\State ${ColorsHex,ColorMap} \gets \textit{CSSParser(CSSFile)}$ 
+\For{$i \gets 1 \textrm{ to } ColorsHex.length$}
+	\For{$j \gets 1\textrm{ to } SETS.length$} \Comment{SETS contains the predefined set of non-conflicting colors}
+        \If{$ColorsHex[i] \in SETS[j]$}
+        		\State $Replaced \gets i$ \Comment{Helps in keeping the original color and thus naturalness}
+        		\State $SetChosen \gets j$
+        		\State \textbf{break}
+        	\EndIf
+        \EndFor
+      \EndFor
+\For{$i \gets 1 \textrm{ to } ColorsHex.length$}
+	\If{$i==Replaced$} 
+	\State	\textbf{continue}
+	\EndIf
+	\State $ColorsHex[i] \gets SETS[j][i]$
+\EndFor
+\State $NewCSSFile \gets ReplaceColors(CSSFile, ColorsHex, ColorMap)$
+\State \textbf{return} $NewCSSFile$
+\EndProcedure
+\Procedure{CSSParser(CSSFile)}{}
+\State \textit{Defined in Algorithm 1}
+\EndProcedure
+\Procedure{ReplaceColors(CSSFile, ColorsHex, ColorMap)}{}
+\State \textit{Defined in Algorithm 1}
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+
+\subsection{How to obtain safe colors?}
+\label{Obtaining safe colors}
+Most accurate way of obtaining these safe colors would be to show a set of colors to CVD users and then classify the colors as \textit{safe} or \textit{conflicting}. Although degree of CVD may slightly vary from user to user but we assume in our study that a safe set developed for some of the CVD users is applicable to most of them. 
+
+A similar study was done by [5]. They obtained a color palette as seen by a CVD users. 
+
+\begin{figure}[!htb]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{ColorMapNormal.png}
+  \caption{As seen by a normal person}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{ColorMapCVD.png}
+  \caption{As seen by CVD person (Protanopia)}
+  \label{fig:sub2}
+\end{subfigure}
+\caption{Color Palette}
+\label{fig:test}
+\end{figure}
+
+As we can observe, a CVD person can only see a subset of all possible colors. In other words, an entire set of colors(Fig 3.4(a)) is mapped to only a few different colors(Fig 3.4(b)). It is very probable that if two random colors are put into a single web page, they map to two colors that have very little differentiability between them. If they are used in background and text formatting, a color blind person won't be able to read the text, which might be a crucial aspect from a website designers point of view. To resolve this, we need a particular set of colors, which when used together, map to colors having significant differentiability for a CVD user.
+
+
+Lets say there are two colors in a web page \textit{C1} and \textit{C2} as seen by a normal person. They will be seen as \textit{C1'} and \textit{C2'} by a CVD user. \textit{C1'} and \textit{C2'} should be differentiable enough for a CVD person to read the content on the web page. Idea is to replace \textit{C1} and \textit{C2} with \textit{D1} and \textit{D2} such that \textit{D1'} and \textit{D2'}, as seen by a CVD user, are differentiable enough.
+
+
+
+
+
+\subsubsection{Disadvantages of this approach}
+\label{SPRWeb}
+
+\begin{itemize}
+\item{We will have to manually generate a finite number of sets from the palette available at [5], so that we can choose a particular set while recoloring.} 
+\item{Still, there can be a case in which none of the colors in \textit{ColorHex} belongs to any of the sets, which restricts the scope of this approach.}
+\item{This approach leads to bad \textit{perceptual naturalness}, as the complete set of original CSS colors will be replaced with a newer one.}
+\end{itemize}
+
+
+\subsection{SPRWeb}
+\label{SPRWeb}
+
+
+
+
 
 \subsection{SECTION-TITLE}
 \label{SECTION-LABEL}

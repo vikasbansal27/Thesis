@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.4.11)  15 APR 2014 02:52
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.4.11)  16 APR 2014 15:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -630,10 +630,19 @@ LaTeX Warning: Label `fig:test' multiply defined.
 LaTeX Warning: Label `Tick' multiply defined.
 
 
-LaTeX Warning: Label `SECTION-LABEL' multiply defined.
+LaTeX Warning: Label `fig:sub1' multiply defined.
 
 
-LaTeX Warning: Label `SECTION-LABEL' multiply defined.
+LaTeX Warning: Label `sub@fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `fig:test' multiply defined.
 
 
 LaTeX Warning: Label `SECTION-LABEL' multiply defined.
@@ -973,87 +982,104 @@ Missing character: There is no ™ in font ptmr7t!
 
 
 ]
-Overfull \hbox (2.66365pt too wide) in paragraph at lines 27--27
+Overfull \hbox (2.66365pt too wide) in paragraph at lines 29--29
  [][][][]\OT1/ptm/b/n/12 Orange 
  []
 
 
-Overfull \hbox (2.66365pt too wide) in paragraph at lines 30--30
+Overfull \hbox (2.66365pt too wide) in paragraph at lines 32--32
  [][][][]\OT1/ptm/b/n/12 Orange 
  []
 
 
 Package caption Warning: \captionsetup{type*=...} or \captionof
-(caption)                outside box or environment on input line 37.
+(caption)                outside box or environment on input line 39.
 See the caption package documentation for explanation.
 
 <hru1.png, id=101, 426.09187pt x 147.55125pt>
 File: hru1.png Graphic file (type png)
  <use hru1.png>
-Package pdftex.def Info: hru1.png used on input line 46.
+Package pdftex.def Info: hru1.png used on input line 48.
 (pdftex.def)             Requested size: 108.405pt x 37.53838pt.
 
 <hru2.png, id=102, 420.06938pt x 161.10187pt>
 File: hru2.png Graphic file (type png)
  <use hru2.png>
-Package pdftex.def Info: hru2.png used on input line 52.
+Package pdftex.def Info: hru2.png used on input line 54.
 (pdftex.def)             Requested size: 108.405pt x 41.5733pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 60--61
+Underfull \hbox (badness 10000) in paragraph at lines 62--63
 
  []
 
-[14 <./hru1.png> <./hru2.png>]
-Overfull \hbox (2.66365pt too wide) in paragraph at lines 82--82
+[14]
+Overfull \hbox (2.66365pt too wide) in paragraph at lines 84--84
  [][][][]\OT1/ptm/b/n/12 Orange 
  []
 
 
-Overfull \hbox (1.99171pt too wide) in paragraph at lines 82--82
+Overfull \hbox (1.99171pt too wide) in paragraph at lines 84--84
  [][][][]\OT1/ptm/b/n/12 ColorA 
  []
 
 
-Overfull \hbox (1.33167pt too wide) in paragraph at lines 82--82
+Overfull \hbox (1.33167pt too wide) in paragraph at lines 84--84
  [][][][]\OT1/ptm/b/n/12 ColorB 
  []
 
 
-Overfull \hbox (1.99171pt too wide) in paragraph at lines 82--82
+Overfull \hbox (1.99171pt too wide) in paragraph at lines 84--84
  [][][][]\OT1/ptm/b/n/12 ColorC 
  []
 
 
-Overfull \hbox (2.66365pt too wide) in paragraph at lines 85--85
+Overfull \hbox (2.66365pt too wide) in paragraph at lines 87--87
  [][][][]\OT1/ptm/b/n/12 Orange 
- []
-
-
-Overfull \hbox (1.99171pt too wide) in paragraph at lines 90--90
- [][][][]\OT1/ptm/b/n/12 ColorA 
- []
-
-
-Overfull \hbox (1.33167pt too wide) in paragraph at lines 91--91
- [][][][]\OT1/ptm/b/n/12 ColorB 
  []
 
 
 Overfull \hbox (1.99171pt too wide) in paragraph at lines 92--92
+ [][][][]\OT1/ptm/b/n/12 ColorA 
+ []
+
+
+Overfull \hbox (1.33167pt too wide) in paragraph at lines 93--93
+ [][][][]\OT1/ptm/b/n/12 ColorB 
+ []
+
+
+Overfull \hbox (1.99171pt too wide) in paragraph at lines 94--94
  [][][][]\OT1/ptm/b/n/12 ColorC 
  []
 
 
-Overfull \hbox (58.76973pt too wide) in paragraph at lines 94--95
+Overfull \hbox (58.76973pt too wide) in paragraph at lines 96--97
 [][] 
  []
 
-[15]) [16]
+[15 <./hru1.png> <./hru2.png>]
+
+LaTeX Warning: Float too large for page by 83.44064pt on input line 152.
+
+<ColorMapNormal.png, id=112, 370.38374pt x 402.50375pt>
+File: ColorMapNormal.png Graphic file (type png)
+
+<use ColorMapNormal.png>
+Package pdftex.def Info: ColorMapNormal.png used on input line 205.
+(pdftex.def)             Requested size: 108.405pt x 117.80403pt.
+ <ColorMapCVD.png, id=113, 370.38374pt x 401.5pt>
+File: ColorMapCVD.png Graphic file (type png)
+
+<use ColorMapCVD.png>
+Package pdftex.def Info: ColorMapCVD.png used on input line 211.
+(pdftex.def)             Requested size: 108.405pt x 117.51025pt.
+ [16 <./ColorMapNormal.png> <./ColorMapCVD.png>]) [17]
+[18] [19]
 \openout2 = `sampleAppendix.aux'.
 
  (./sampleAppendix.tex
 Appendix A.
-) [17
+) [20
 
 
 
@@ -1069,13 +1095,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 15141 strings out of 495059
- 274713 string characters out of 3182030
- 384261 words of memory out of 3000000
- 17888 multiletter control sequences out of 15000+200000
- 27934 words of font info for 60 fonts, out of 3000000 for 9000
+ 15165 strings out of 495059
+ 275132 string characters out of 3182030
+ 384448 words of memory out of 3000000
+ 17910 multiletter control sequences out of 15000+200000
+ 29030 words of font info for 62 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 56i,15n,75p,1544b,907s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 56i,15n,75p,1544b,905s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist
@@ -1088,10 +1114,10 @@ y8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/urw/times/utmri8a.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/urw/zapfding/uzdr.pfb>
-Output written on thesis.pdf (29 pages, 1177545 bytes).
+Output written on thesis.pdf (32 pages, 1227999 bytes).
 PDF statistics:
- 159 PDF objects out of 1000 (max. 8388607)
- 106 compressed objects within 2 object streams
+ 171 PDF objects out of 1000 (max. 8388607)
+ 113 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 33 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 43 words of extra memory for PDF output out of 10000 (max. 10000000)
 
