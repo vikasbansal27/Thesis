@@ -225,8 +225,8 @@ Lets say there are two colors in a web page \textit{C1} and \textit{C2} as seen 
 
 
 
-\subsubsection{Disadvantages of this approach}
-\label{SPRWeb}
+\subsubsection{Limitations of this approach}
+\label{Limitatios}
 
 \begin{itemize}
 \item{We will have to manually generate a finite number of sets from the palette available at [5], so that we can choose a particular set while recoloring.} 
@@ -238,9 +238,150 @@ Lets say there are two colors in a web page \textit{C1} and \textit{C2} as seen 
 \subsection{SPRWeb}
 \label{SPRWeb}
 
+SPRweb[] by David et. al. is a tool that recolors websites to preserve subjective responses and improve color differentiability – thus enabling users with CVD to have similar on-line experiences. To recolor web pages, it uses a mapping available in DTEP(Dichromacy Trichromacy Equivalence Plane) set.
 
 
+To find the DTEP set previous researches, have used findings from unilateral dichromats (individuals who are dichromatic in one eye, but are trichromatic in the other) to identify the set of colors that are perceived identically in dichromatic color vision and typical color vision. 
 
+DTEP set contains all the colors which are perceived same as by a normal person and a CVD person. It also lists all the colors which are perceived by a CVD person. 
+
+The key difference in our initial approach and that of SPRweb is the availability of a bigger set of colors and the inclusion of optimization of cost corresponding to \textit{perceptual naturalness}, \textit{perceptual differentiability}, \textit{subjective naturalness} and \textit{subjective differentiability.}
+
+We developed following algorithm implementing approach mentioned in SPRWeb to compare its performance with our final algorithm. 
+
+
+\makeatletter
+\def\BState{\State\hskip-\ALG@thistlm}
+\makeatother
+
+\begin{algorithm}[!htb]
+\caption{SPRWeb}\label{SPRWeb}
+\begin{algorithmic}[1]
+\Procedure{SPRWeb(CSSFile)}{}
+\State ${ColorsHex,ColorMap} \gets \textit{CSSParser(CSSFile)}$
+\State $ColorsOrig \gets HexToCIELab(ColorsHex)$
+\State $DTEPSampled \gets UniformSample(DTEP,900)$ \Comment{gets 900 uniform samples from DTEP}
+\State $ColorsRep \gets RAND(DTEPSampled,ColorsOrig.length)$ \Comment{Initializing Replaced color set with random colors from DTEPSampled}
+\State $FirstOuput \gets FirstPass(ColorsOrig,ColorsRep,DTEPSampled)$
+\For{$i \gets 1 \textrm{ to } FirstOuput.length$}
+	\For{$j \gets 1\textrm{ to } DTEP$}
+		\If{$distance(FirstOuput[i],DTEP[j]) < 5$}
+			\State $DTEPFiltered[i].append(DTEP[j])$
+		\EndIf
+	\EndFor
+\EndFor
+\State $FinalOutput = SecondPass(ColorsOrig,FirstOuput,DTEPFiltered)$
+\State $ColorsHex \gets CIELabToHex(FinalOutput)$
+\State $NewCSSFile \gets ReplaceColors(CSSFile, ColorsHex, ColorMap)$
+\State \textbf{return} $NewCSSFile$
+\EndProcedure
+\algstore{myalg}
+
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[!htb]
+\caption{SPRWeb:continue}\label{SPRWeb:continue}
+\begin{algorithmic}[1]
+\algrestore{myalg}
+\Procedure{FirstPass(ColorsOrig,ColorsRep,DTEPSampled)}{}
+\State $cost \gets CalculateCost(ColorsOrig,ColorsRep)$
+\State $ColorRep1 \gets ColorsRep$  \Comment{Initializing a variable to check optimization}
+\While {$\textbf{true}$}
+	\For{$i \gets 1 \textrm{ to } ColorsRep.length$}
+		\For{$j \gets 1\textrm{ to } DTEPSampled$}
+			\State $Value \gets ColorsRep[i]$
+			\State $ColorsRep[i] \gets DTEPSampled[j]$ \Comment{trying a new color from DTEPSampled}
+			\State $NewCost \gets CalculateCost(ColorsOrig,ColorsRep)$  \Comment{Calculating new cost after the change}
+	        \If{$NewCost > cost$} 
+	        		\State $ColorsRep[i] = Value$ \Comment{increased cost, Rejecting the color}
+	        	\EndIf
+	        \EndFor
+	      \EndFor
+	\State $ColorsRep2 \gets ColorsRep1$
+	\State $ColorsRep1 \gets ColorRep$
+	\If{$ColorsRep1 == ColorRep2$}
+		\State $\textbf{break}$
+	\EndIf
+\EndWhile
+\State $\textbf{return}  ColorRep1$
+\EndProcedure
+\Procedure{CSSParser(CSSFile)}{}
+\State \textit{Defined in Algorithm 1}
+\EndProcedure
+\Procedure{ReplaceColors(CSSFile, ColorsHex, ColorMap)}{}
+\State \textit{Defined in Algorithm 1}
+\EndProcedure
+\algstore{myalg}
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[!htb]
+\caption{SPRWeb:continue}\label{SPRWeb:continue2}
+\begin{algorithmic}[1]
+\algrestore{myalg}
+\Procedure{SecondPass(ColorsOrig,ColorsRep,DTEPFiltered)}{}
+\State $cost \gets CalculateCost(ColorsOrig,ColorsRep)$
+\State $ColorRep1 \gets ColorsRep$  \Comment{Initializing a variable to check optimization}
+\While {$\textbf{true}$}
+	\For{$i \gets 1 \textrm{ to } ColorsRep.length$}
+		\For{$j \gets 1\textrm{ to } DTEPFiltered[i]$}
+			\State $Value \gets ColorsRep[i]$
+			\State $ColorsRep[i] \gets DTEPFiltered[i][j]$ \Comment{trying a new color from DTEPSampled}
+			\State $NewCost \gets CalculateCost(ColorsOrig,ColorsRep)$  \Comment{Calculating new cost after the change}
+	        \If{$NewCost > cost$} 
+	        		\State $ColorsRep[i] = Value$ \Comment{increased cost, Rejecting the color}
+	        	\EndIf
+	        \EndFor
+	      \EndFor
+	\State $ColorsRep2 \gets ColorsRep1$
+	\State $ColorsRep1 \gets ColorRep$
+	\If{$ColorsRep1 == ColorRep2$}
+		\State $\textbf{break}$
+	\EndIf
+\EndWhile
+\State $\textbf{return}  ColorRep1$
+\EndProcedure
+\algstore{myalg}
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[!htb]
+\caption{SPRWeb:continue}\label{SPRWeb:continue3}
+\begin{algorithmic}[1]
+\algrestore{myalg}
+\Procedure{CalculateCost(ColorsOrig,ColorsRep)}{}
+\State $pn \gets PercepNaturalness(ColorsOrig,ColorsRep)$
+\State $pd \gets PercepDifferentiability(ColorsOrig,ColorsRep)$
+\State $spn \gets SubNaturalness(ColorsOrig,ColorsRep)$
+\State $spd \gets SubDifferentiability(ColorsOrig,ColorsRep)$
+\State cost = $pn + pd + spn + spd$
+\State \textbf{return} $cost$
+\EndProcedure
+
+\Procedure{PercepNaturalness(ColorsOrig,ColorsRep)}{}
+\State $pn \gets 0$
+\For{$i \gets 1 \textrm{ to } ColorsOrig.length$}
+	\State $pn \gets pn + distance(ColorsOrig[i],ColorsRep[i])$
+\EndFor
+\State $pn \gets pn/ColorsOrig.length$
+\State \textbf{return} $pn$
+\EndProcedure
+
+\Procedure{PercepDifferentiability(ColorsOrig,ColorsRep)}{}
+\State $pd \gets 0$
+\For{$i \gets 1 \textrm{ to } ColorsOrig.length$}
+	\For{$j \gets i+1 \textrm{ to } ColorsRep.length$}
+		\State $pd \gets pd + abs(distance(ColorsOrig[i],ColorsOrig[j]) - distance(ColorsRep[i],ColorsRep[j]))$
+	\EndFor
+\EndFor
+\State $pd \gets pd/((ColorsOrig.length)*(ColorsOrig.length-1))$
+\State \textbf{return} $pd$
+\EndProcedure
+
+
+\end{algorithmic}
+\end{algorithm}
 
 \subsection{SECTION-TITLE}
 \label{SECTION-LABEL}
