@@ -265,12 +265,12 @@ We developed following algorithm implementing approach mentioned in SPRWeb to co
 \State $FirstOuput \gets FirstPass(ColorsOrig,ColorsRep,DTEPSampled)$
 \For{$i \gets 1 \textrm{ to } FirstOuput.length$}
 	\For{$j \gets 1\textrm{ to } DTEP$}
-		\If{$distance(FirstOuput[i],DTEP[j]) < 5$}
+		\If{$distance(FirstOuput[i],DTEP[j]) < 5$} \Comment {Looks for all the points at 5 Lab units }
 			\State $DTEPFiltered[i].append(DTEP[j])$
 		\EndIf
 	\EndFor
 \EndFor
-\State $FinalOutput = SecondPass(ColorsOrig,FirstOuput,DTEPFiltered)$
+\State $FinalOutput\gets SecondPass(ColorsOrig,FirstOuput,DTEPFiltered)$
 \State $ColorsHex \gets CIELabToHex(FinalOutput)$
 \State $NewCSSFile \gets ReplaceColors(CSSFile, ColorsHex, ColorMap)$
 \State \textbf{return} $NewCSSFile$
@@ -294,7 +294,7 @@ We developed following algorithm implementing approach mentioned in SPRWeb to co
 			\State $ColorsRep[i] \gets DTEPSampled[j]$ \Comment{trying a new color from DTEPSampled}
 			\State $NewCost \gets CalculateCost(ColorsOrig,ColorsRep)$  \Comment{Calculating new cost after the change}
 	        \If{$NewCost > cost$} 
-	        		\State $ColorsRep[i] = Value$ \Comment{increased cost, Rejecting the color}
+	        		\State $ColorsRep[i] \gets Value$ \Comment{increased cost, Rejecting the color}
 	        	\EndIf
 	        \EndFor
 	      \EndFor
@@ -330,7 +330,7 @@ We developed following algorithm implementing approach mentioned in SPRWeb to co
 			\State $ColorsRep[i] \gets DTEPFiltered[i][j]$ \Comment{trying a new color from DTEPSampled}
 			\State $NewCost \gets CalculateCost(ColorsOrig,ColorsRep)$  \Comment{Calculating new cost after the change}
 	        \If{$NewCost > cost$} 
-	        		\State $ColorsRep[i] = Value$ \Comment{increased cost, Rejecting the color}
+	        		\State $ColorsRep[i]\gets Value$ \Comment{increased cost, Rejecting the color}
 	        	\EndIf
 	        \EndFor
 	      \EndFor
@@ -355,7 +355,7 @@ We developed following algorithm implementing approach mentioned in SPRWeb to co
 \State $pd \gets PercepDifferentiability(ColorsOrig,ColorsRep)$
 \State $spn \gets SubNaturalness(ColorsOrig,ColorsRep)$
 \State $spd \gets SubDifferentiability(ColorsOrig,ColorsRep)$
-\State cost = $pn + pd + spn + spd$
+\State $cost \gets pn + pd + spn + spd$
 \State \textbf{return} $cost$
 \EndProcedure
 
@@ -378,10 +378,105 @@ We developed following algorithm implementing approach mentioned in SPRWeb to co
 \State $pd \gets pd/((ColorsOrig.length)*(ColorsOrig.length-1))$
 \State \textbf{return} $pd$
 \EndProcedure
-
-
+\algstore{myalg}
 \end{algorithmic}
 \end{algorithm}
+
+\begin{algorithm}[!htb]
+\caption{SPRWeb:continue}\label{SPRWeb:continue4}
+\begin{algorithmic}[1]
+\algrestore{myalg}
+\Procedure{SubNaturalness(ColorsOrig,ColorsRep)}{}
+\State \textbf{return} $PercepNaturalness(Sub(ColorsOrig),Sub(ColorsRep))$
+\EndProcedure
+\Procedure{SubDifferentiability(ColorsOrig,ColorsRep)}{}
+\State \textbf{return} $PercepDifferentiability(Sub(ColorsOrig),Sub(ColorsRep))$
+\EndProcedure
+\Procedure{Sub(Color)}{}   \Comment{Transforms a color to the subjective space}
+\State $L \gets Color[0]$
+\State $a \gets Color[1]$
+\State $b \gets Color[2]$
+\If{$a == 90$}
+	\State $H \gets 90$
+\Else
+	\State $H \gets tan^{-1}b/a$
+\EndIf
+\State $C \gets sqrt({a^{2}+b^{2}})$
+\State $activity \gets -2.1 + 0.06*sqrt({(l-50)^{2}+(a-3)^{2}+((b-17)/1.4)^{2}})$
+\State $temp\gets -0.5 + 0.02*C^{1.07}*cos(H-50)$
+\State $weight\gets -1.8 + 0.04*(100-l) + 0.45*cos(H-100)$
+\State \textbf{return} ($activity$,$temp$,$weight$)
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+
+\subsubsection{Performance Improvement in SPRWeb}
+\label{Improvement in SPRWeb}
+While implementing SPRWeb to do performance comparison, we came across some redundant calculations which were happening at every step. By storing the result of those calculations once and then reusing them gave us a significant performance improvement.
+
+\begin{itemize}
+\item {Improvement Naturalness cost calculation:} Procedure \textit{PercepNaturalness} in Algorithm 6 computes a summation and has a time complexity of \textbf{O(n)} where n is the number of colors parsed from CSS file. And \textit{PercepNaturalness} is called every time we make a change in our \textit{ColorRep} set during optimization.
+
+Instead of computing whole summation every time, we can compute the summation only once and then make changes in that for further replacement (because at each step only one color is being replaced and we can just change the sum according to that rather than re-computing whole summation), thus reducing computations.
+
+We can rewrite our \textit{PercepNaturalness} procedure as shown in Algorithm 8. As we can see that the \text{for} loop for summation will get executes only once. Thus the time complexity of one call to \textit{PercepNaturalness} has an average cost of \textbf{O(1)} instead of \textbf{O(n)}.
+
+Some other changes such as passing the value of of the index where the colors is getting replaced and the value of color which is getting replaced will have to be passed as well to the \textit{CalculateCost} procedure. But they all can be done without any added complexity. 
+
+\begin{algorithm}[!htb]
+\caption{Improvements in SPRWeb}\label{Improvements Naturalness}
+\begin{algorithmic}[1]
+\Procedure{PercepNaturalness(ColorsOrig,ColorsRep,$k$,OldColor)}{} \Comment{k=index of replacement, OldColor = Color being replaced}
+\If {$pn == InitialzedValue$}  \Comment{is true only once - during first computation of cost}
+		\For{$i \gets 1 \textrm{ to } ColorsOrig.length$}
+			\State $pn \gets pn + distance(ColorsOrig[i],ColorsRep[i])$
+		\EndFor
+	\State $pn \gets pn/ColorsOrig.length$
+\Else
+\State $pn \gets pn*ColorsOrig.length$
+\State $pn  \gets pn - distance(ColorsOrig[k],OldColor) + distance(ColorsOrig[k],ColorRep[k])$ 
+\EndIf
+\State \textbf{return} $pn$
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\item {Improvement differentiability cost calculation:}  Procedure \textit{PercepDifferentiability} in Algorithm 6 computes a double summation and has a time complexity of \textbf{O($n^{2}$)} where $n$ is the number of colors parsed from CSS file. And \textit{PercepDifferentiability} is called every time we make a change in our \textit{ColorRep} set during optimization process.
+
+
+Instead of computing the two summations every time, we can compute the inner summation only once and then make changes in that for further replacement (because at each step only one color is being replaced and we can just change the sum according to that change rather than re-computing the double summation), thus reducing computations.
+
+We can rewrite our \textit{PercepDifferentiability} procedure as shown in Algorithm 9. As we can see that the inner \text{for} loop for summation will get executes only once. Thus the time complexity of one call to \textit{PercepNaturalness} has an average cost of
+O(n).
+
+
+\begin{algorithm}[!htb]
+\caption{Improvements in SPRWeb}\label{Improvements differentiability}
+\begin{algorithmic}[1]
+\Procedure{PercepDifferentiability(ColorsOrig,ColorsRep,$k$,OldColor)}{} \Comment{k=index of replacement, OldColor = Color being replaced}
+\If {$pd == InitialzedValue$}  \Comment{is true only once - during first computation of cost}
+		\For{$i \gets 1 \textrm{ to } ColorsOrig.length$}
+			\For{$j \gets i+1 \textrm{ to } ColorsRep.length$}
+				\State $pd \gets pd + abs(distance(ColorsOrig[i],ColorsOrig[j]) - distance(ColorsRep[i],ColorsRep[j]))$
+			\EndFor
+		\EndFor
+		\State $pd \gets pd/((ColorsOrig.length)*(ColorsOrig.length-1))$
+\Else 
+\State $pd \gets pd*((ColorsOrig.length)*(ColorsOrig.length-1))$
+\For{$i \gets 1 \textrm{ to } ColorsOrig.length$}
+	\State $pd  \gets pd - abs(distance(ColorsOrig[i],ColorsOrig[k]) - distance(ColorsRep[i],OldColor))$
+	\State $pd  \gets pd + abs(distance(ColorsOrig[i],ColorsOrig[k]) - distance(ColorsRep[i],ColorRep[k]))$
+\EndFor
+\State $pd \gets pd/((ColorsOrig.length)*(ColorsOrig.length-1))$
+\EndIf
+\State \textbf{return} $pd$
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+
+\end{itemize}
 
 \subsection{SECTION-TITLE}
 \label{SECTION-LABEL}
