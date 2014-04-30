@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.4.11)  29 APR 2014 20:46
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.4.11)  30 APR 2014 02:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -648,6 +648,12 @@ LaTeX Warning: Label `fig:test' multiply defined.
 LaTeX Warning: Label `fig:sub1' multiply defined.
 
 
+LaTeX Warning: Label `fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub2' multiply defined.
+
+
 LaTeX Warning: Label `SPRWeb' multiply defined.
 
 
@@ -1192,17 +1198,38 @@ Package pdftex.def Info: SortedLuminanceDTEP.png used on input line 682.
 <SortedContrast.png, id=150, 815.045pt x 614.295pt>
 File: SortedContrast.png Graphic file (type png)
  <use SortedContrast.png>
-Package pdftex.def Info: SortedContrast.png used on input line 690.
+Package pdftex.def Info: SortedContrast.png used on input line 692.
 (pdftex.def)             Requested size: 433.62001pt x 326.82146pt.
-)
-[26 <./contrastDTEP.png (PNG copy)>] [27 <./SortedLuminanceDTEP.png>] [28]
-[29] [30] [31] [32] [33] [34] [35] [36] [37] [38] [39 <./SortedContrast.png>]
+
+[26 <./contrastDTEP.png (PNG copy)>] [27 <./SortedLuminanceDTEP.png>]
+<CR1.png, id=158, 1175.1102pt x 641.0349pt>
+File: CR1.png Graphic file (type png)
+ <use CR1.png>
+Package pdftex.def Info: CR1.png used on input line 712.
+(pdftex.def)             Requested size: 433.62001pt x 236.5434pt.
+
+<CR2.png, id=159, 1175.1102pt x 641.0349pt>
+File: CR2.png Graphic file (type png)
+ <use CR2.png>
+Package pdftex.def Info: CR2.png used on input line 719.
+(pdftex.def)             Requested size: 433.62001pt x 236.5434pt.
+
+<CR3.png, id=160, 815.045pt x 614.295pt>
+File: CR3.png Graphic file (type png)
+ <use CR3.png>
+Package pdftex.def Info: CR3.png used on input line 726.
+(pdftex.def)             Requested size: 433.62001pt x 326.82146pt.
+ [28 <./SortedContrast.png>]
+
+LaTeX Warning: Text page 29 contains only floats.
+
+[29 <./CR1.png> <./CR2.png>] [30 <./CR3.png (PNG copy)>]) [31] [32] [33]
+[34] [35] [36] [37] [38] [39] [40] [41] [42]
 \openout2 = `sampleAppendix.aux'.
 
-
-(./sampleAppendix.tex
+ (./sampleAppendix.tex
 Appendix A.
-) [40
+) [43
 
 
 
@@ -1218,10 +1245,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 15224 strings out of 495059
- 276287 string characters out of 3182030
- 385604 words of memory out of 3000000
- 17964 multiletter control sequences out of 15000+200000
+ 15241 strings out of 495059
+ 276475 string characters out of 3182030
+ 384652 words of memory out of 3000000
+ 17978 multiletter control sequences out of 15000+200000
  29030 words of font info for 62 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  56i,15n,75p,1544b,905s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1237,10 +1264,10 @@ y8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/urw/times/utmri8a.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/urw/zapfding/uzdr.pfb>
-Output written on thesis.pdf (52 pages, 1670492 bytes).
+Output written on thesis.pdf (55 pages, 1755413 bytes).
 PDF statistics:
- 243 PDF objects out of 1000 (max. 8388607)
- 158 compressed objects within 2 object streams
+ 258 PDF objects out of 1000 (max. 8388607)
+ 165 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 68 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 83 words of extra memory for PDF output out of 10000 (max. 10000000)
 

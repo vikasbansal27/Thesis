@@ -612,7 +612,7 @@ To resolve such conflicts, we can follow the W3C guidelines of contrast threshol
 \begin{itemize}
 \item{}this technique is needed to make sure that users can read text that is presented over a background. 
 
-\item{}If the background is a solid color (or all black or all white) then the relative luminance of the text can be maintained by making sure that each of the text letters have 4.5:1 contrast ratio with the background.
+\item{}If the background is a solid color (or all black or all white) then the relative luminance of the text can be maintained by making sure that each of the text letters have 4.5:1 contrast ratio (CR) with the background.
 
 \item{}If the background or the letters vary in relative luminance (or are patterned) then the background around the letters can be chosen or shaded so that the letters maintain a 4.5:1 contrast ratio with the background behind them even if they do not have that contrast ratio with the entire background.
 
@@ -673,10 +673,10 @@ If we see the plot of contrast ratio of a color with the rest of DTEP colors, it
 \caption{contrast plot for DTEP}
 \label{fig:ContrastPlot}
 \end{figure}
-If we observe we can see that the graph is particularly divided in two regions, one has a decreasing contrast ratio values followed by a zero point and then we have a region where contrast ratio is somewhat increasing. 
+If we observe we can see that the graph is particularly divided in two regions, one has a decreasing contrast ratio values followed by a unity point and then we have a region where contrast ratio is somewhat increasing. 
 
 
-If we arrange the DTEP set according to the luminance values, we can obtain a graph like:
+If we arrange the DTEP set according to the luminance values, we can obtain a graph like in Fig 3.8:
 \begin{figure}[!htb]
 \centering
 \includegraphics[width=\linewidth]{SortedLuminanceDTEP.png}
@@ -684,13 +684,57 @@ If we arrange the DTEP set according to the luminance values, we can obtain a gr
 \label{fig:LuminanceSortedPlot}
 \end{figure}
 
-And using this same sorted DTEP set, we can obtain the contrast ratio graph of one of the colors and the rest of the DTEP members as follows:
+
+
+And using this same sorted DTEP set, we can obtain the contrast ratio graph of one of the colors, lets call A, and the rest of the DTEP members as shown in Fig 3.9.
 \begin{figure}[!htb]
 \centering
 \includegraphics[width=\linewidth]{SortedContrast.png}
 \caption{Sorted contrast plot}
 \label{fig:SortedContrastPlot}
 \end{figure}
-% subsection subsection_name (end)
 
-% section section_name (end)
+As we can observe in Fig 3.9, value of the contrast ratio starts from a value, lets call it a starting point and then plunges to $0$. Lets call it a unity point. This unity point is essentially the index of occurrence of color A in DTEP set. After that, the contrast ratio increases and reaches its maximum value, lets call it a ending point.
+
+Following observations can be made about starting point, unity point and ending point:
+\begin{itemize}
+\item{\textbf{Starting point can have a contrast value of [0,21])}} : As per the arrangement in DTEP set (increasing order of luminance), it is evident that maximum value of contrast ratio can occur at starting point when it is paired up with the last value of DTEP. 
+\item {\textbf{Contrast ratio strictly declines from starting point till unity point}} : At unity point, the color is paired up with itself thus giving a contrast ratio of 1. If we move slightly to the left of unity point, we will see colors which have less luminance value as compared to the color A under consideration. And since the colors to the left have a luminance value less than that of A, their luminance value will be in the denominator of the CR formula. And as we move backwards towards the starting point, the denominator will keep on decreasing (due to the sorted luminance order in DTEP set), increasing the net CR value. 
+\item{\textbf{Contrast ratio strictly increases from unity point till ending point}} : If we move slightly rightwards towards the ending point, the value of luminance in colors would increase. In the CR formula, luminance value of color on the right would be on top and that of color A, under consideration, would be in denominator. As we move right, numerator would increase, thus increasing net CR value. 
+\end{itemize}
+
+
+
+To make sure that the colors we choose satisfy the minimum contrast threshold criteria, we draw a vertical line $Y=4.5$ in Fig 3.9. The possible plots that can be obtained after that are shown in Fig. 3.10, 3.11 and 3.12:
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\linewidth]{CR1.png}
+\caption{Only starting point included}
+\label{fig:sub1}
+\end{figure}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\linewidth]{CR2.png}
+\caption{Both starting and ending points included}
+\label{fig:sub2}
+\end{figure}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\linewidth]{CR3.png}
+\caption{Only ending point included}
+\label{fig:sub3}
+\end{figure}
+
+
+The gray area in Fig 3.10,3.11 and 3.12 show the region from where we can take the colors such that the W3C guideline of minimum threshold is met.
+
+\subsection{Implementation}
+\label{Implementation}
+
+Since we are aiming to make sure that the recolored web pages have color pairs such that the contrast ratio between them meets the 4.5:1 contrast threshold criteria, we need to restrict our possible color search space from DTEP set to a shorter set. Length and the properties of the possible set depends on the color being considered. As shown in Fig 3.10, 3.11, 3.12, the number of possibilities and their location depends on the color. A general approach to include this new criteria in recoloring of a pair, lets say fg-bg, would be to first find a replacement $fg^{\prime}$ for fg using the \textbf{FindRecolor} procedure in algorithm 11. And then obtain a curve like shown in Fig 3.10,11 and 12. Followed by finding the points which lie in the gray region in DTEP set and putting them in new \textit{DTEPReduced} set. And then finally searching a possible replacement $bg^{\prime}$ in the \textit{DTEPReduced} search space using the same approach as mentioned in \textbf{FindRecolor} procedure in algorithm 11. But since there are many pairs possible in a web page, obtaining a curve at run time for each and every pair adds to computational complexity. 
+
+To resolve the problem of having to calculate the curves and find a \textit{DTEPReduced} set corresponding to a color in color pair, we pre-compute a mapping of possible values. This mapping has each color as a key and \textit{DTEPReduced} as value. A color, lets say x, has a \textit{DTEPReduced} set such that all colors in \textit{DTEPReduced} set when paired with x, produce a contrast ratio of more than 4.5. Thus, if in a pair fg-bg, where replacement for fg is $fg^{\prime}$, if we choose a replacement for bg in \textit{DTEPReduced} set, then we would be sure that the recolored pair $fg^{\prime}$-$bg^{\prime}$ has a contrast ratio of more than 4.5.
+
