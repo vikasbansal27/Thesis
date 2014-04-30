@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.4.11)  30 APR 2014 02:52
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.4.11)  30 APR 2014 15:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -659,6 +659,12 @@ LaTeX Warning: Label `SPRWeb' multiply defined.
 
 LaTeX Warning: Label `Our Approach' multiply defined.
 
+
+LaTeX Warning: Label `Find Mapping' multiply defined.
+
+
+LaTeX Warning: Label `Minimum contrast included' multiply defined.
+
 ) (./sampleAppendix.aux
 
 LaTeX Warning: Label `SECTION-LABEL' multiply defined.
@@ -1223,13 +1229,38 @@ Package pdftex.def Info: CR3.png used on input line 726.
 
 LaTeX Warning: Text page 29 contains only floats.
 
-[29 <./CR1.png> <./CR2.png>] [30 <./CR3.png (PNG copy)>]) [31] [32] [33]
-[34] [35] [36] [37] [38] [39] [40] [41] [42]
+[29 <./CR1.png> <./CR2.png>] [30 <./CR3.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 758--759
+[] $\OML/cmm/m/it/12 index \OMS/cmsy/m/n/12   \OML/cmm/m/it/12 findGe\OT1/cmr/m
+/n/12 (\OML/cmm/m/it/12 DTEPLuminance\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 j \OT1/c
+mr/m/n/12 + 1 :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 778--779
+[] $\OML/cmm/m/it/12 index\OT1/cmr/m/n/12 2 \OMS/cmsy/m/n/12   \OML/cmm/m/it/12
+ findGe\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 DTEPLuminance\OT1/cmr/m/n/12 [\OML/cmm
+/m/it/12 j \OT1/cmr/m/n/12 + 1 :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 833--834
+[] \OT1/ptm/b/n/12 if $\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 distance\OT1/cmr/m/n/1
+2 (\OML/cmm/m/it/12 minDistCircle\OT1/cmr/m/n/12 [0]\OML/cmm/m/it/12 ; mapping\
+OT1/cmr/m/n/12 [\OML/cmm/m/it/12 j\OT1/cmr/m/n/12 ][\OML/cmm/m/it/12 i\OT1/cmr/
+m/n/12 ]) \OML/cmm/m/it/12 >
+ []
+
+
+LaTeX Warning: Float too large for page by 5.34898pt on input line 842.
+
+) [31] [32] [33] [34] [35] [36] [37] [38] [39] [40] [41] [42] [43] [44]
+[45] [46]
 \openout2 = `sampleAppendix.aux'.
 
  (./sampleAppendix.tex
 Appendix A.
-) [43
+) [47
 
 
 
@@ -1245,10 +1276,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 15241 strings out of 495059
- 276475 string characters out of 3182030
- 384652 words of memory out of 3000000
- 17978 multiletter control sequences out of 15000+200000
+ 15249 strings out of 495059
+ 276678 string characters out of 3182030
+ 395673 words of memory out of 3000000
+ 17986 multiletter control sequences out of 15000+200000
  29030 words of font info for 62 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  56i,15n,75p,1544b,905s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1264,10 +1295,10 @@ y8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/urw/times/utmri8a.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/urw/zapfding/uzdr.pfb>
-Output written on thesis.pdf (55 pages, 1755413 bytes).
+Output written on thesis.pdf (59 pages, 1762192 bytes).
 PDF statistics:
- 258 PDF objects out of 1000 (max. 8388607)
- 165 compressed objects within 2 object streams
+ 270 PDF objects out of 1000 (max. 8388607)
+ 173 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  83 words of extra memory for PDF output out of 10000 (max. 10000000)
 

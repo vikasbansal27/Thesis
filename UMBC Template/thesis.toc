@@ -27,9 +27,9 @@
 \contentsline {subsection}{\numberline {3.3.1}W3C guidelines}{23}
 \contentsline {subsection}{\numberline {3.3.2}Including W3C guidelines in our approach}{25}
 \contentsline {subsection}{\numberline {3.3.3}Implementation}{30}
-\contentsline {chapter}{\numberline {Appendix{} A}\uppercase {APPENDIX-TITLE}}{43}
+\contentsline {chapter}{\numberline {Appendix{} A}\uppercase {APPENDIX-TITLE}}{47}
 \addvspace {10pt}
-\contentsline {section}{\numberline {A.1}SECTION-TITLE}{43}
-\contentsline {section}{\numberline {A.2}SECTION-TITLE}{43}
-\contentsline {subsection}{\numberline {A.2.1}SECTION-TITLE}{43}
-\contentsline {subsection}{\numberline {A.2.2}SECTION-TITLE}{43}
+\contentsline {section}{\numberline {A.1}SECTION-TITLE}{47}
+\contentsline {section}{\numberline {A.2}SECTION-TITLE}{47}
+\contentsline {subsection}{\numberline {A.2.1}SECTION-TITLE}{47}
+\contentsline {subsection}{\numberline {A.2.2}SECTION-TITLE}{47}
