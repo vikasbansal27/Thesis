@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.4.11)  17 APR 2014 01:45
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.4.11)  29 APR 2014 20:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -645,10 +645,13 @@ LaTeX Warning: Label `sub@fig:sub2' multiply defined.
 LaTeX Warning: Label `fig:test' multiply defined.
 
 
-LaTeX Warning: Label `SECTION-LABEL' multiply defined.
+LaTeX Warning: Label `fig:sub1' multiply defined.
 
 
 LaTeX Warning: Label `SPRWeb' multiply defined.
+
+
+LaTeX Warning: Label `Our Approach' multiply defined.
 
 ) (./sampleAppendix.aux
 
@@ -1087,7 +1090,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 375--376
  []
 
 [18]
-Underfull \hbox (badness 10000) in paragraph at lines 438--439
+Underfull \hbox (badness 10000) in paragraph at lines 441--442
 [] $\OML/cmm/m/it/12 pn \OMS/cmsy/m/n/12   \OML/cmm/m/it/12 pn \OMS/cmsy/m/n/12
  ^^@ \OML/cmm/m/it/12 distance\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ColorsOrig\OT1/
 cmr/m/n/12 [\OML/cmm/m/it/12 k\OT1/cmr/m/n/12 ]\OML/cmm/m/it/12 ; OldColor\OT1/
@@ -1095,13 +1098,13 @@ cmr/m/n/12 ) +
  []
 
 
-Overfull \hbox (6.20802pt too wide) in paragraph at lines 457--458
+Overfull \hbox (6.20802pt too wide) in paragraph at lines 460--461
 []\OT1/ptm/b/n/12 pro-ce-dure \OT1/ptm/m/sc/12 PercepDifferentiability(ColorsOr
 ig,ColorsRep,$\OML/cmm/m/it/12 k$\OT1/ptm/m/sc/12 ,OldColor)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 461--462
+Underfull \hbox (badness 10000) in paragraph at lines 464--465
 [] $\OML/cmm/m/it/12 pd \OMS/cmsy/m/n/12   \OML/cmm/m/it/12 pd \OT1/cmr/m/n/12 
 + \OML/cmm/m/it/12 abs\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 distance\OT1/cmr/m/n/12
  (\OML/cmm/m/it/12 ColorsOrig\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 i\OT1/cmr/m/n/12
@@ -1110,7 +1113,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 461--462
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 468--469
+Underfull \hbox (badness 10000) in paragraph at lines 471--472
 [] $\OML/cmm/m/it/12 pd \OMS/cmsy/m/n/12   \OML/cmm/m/it/12 pd \OMS/cmsy/m/n/12
  ^^@ \OML/cmm/m/it/12 abs\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 distance\OT1/cmr/m/n
 /12 (\OML/cmm/m/it/12 ColorsOrig\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 i\OT1/cmr/m/n
@@ -1119,7 +1122,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 468--469
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 469--470
+Underfull \hbox (badness 10000) in paragraph at lines 472--473
 [] $\OML/cmm/m/it/12 pd \OMS/cmsy/m/n/12   \OML/cmm/m/it/12 pd \OT1/cmr/m/n/12 
 + \OML/cmm/m/it/12 abs\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 distance\OT1/cmr/m/n/12
  (\OML/cmm/m/it/12 ColorsOrig\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 i\OT1/cmr/m/n/12
@@ -1127,12 +1130,79 @@ Underfull \hbox (badness 10000) in paragraph at lines 469--470
 12 ]) \OMS/cmsy/m/n/12 ^^@
  []
 
-) [19] [20] [21] [22] [23] [24] [25] [26] [27] [28]
+[19] [20] [21]
+Underfull \hbox (badness 10000) in paragraph at lines 530--531
+[] $\OML/cmm/m/it/12 RecoloredForeground\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 i\OT1
+/cmr/m/n/12 ]\OML/cmm/m/it/12 ; RecoloredBackground\OT1/cmr/m/n/12 [\OML/cmm/m/
+it/12 i\OT1/cmr/m/n/12 ] \OMS/cmsy/m/n/12  
+ []
+
+
+Overfull \hbox (10.78156pt too wide) in paragraph at lines 530--531
+\OML/cmm/m/it/12 FindRecolor\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 HexToCIELAB\OT1/c
+mr/m/n/12 (\OML/cmm/m/it/12 Foreground\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 i\OT1/c
+mr/m/n/12 ])\OML/cmm/m/it/12 ; HexToCIELAB\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 Bac
+kground\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 i\OT1/cmr/m/n/12 ]))$ 
+ []
+
+
+Overfull \hbox (594.59569pt too wide) in paragraph at lines 537--538
+[] $\OML/cmm/m/it/12 i \OMS/cmsy/m/n/12   \OML/cmm/m/it/12 xsuchmin[]$ 
+ []
+
+
+Overfull \hbox (23.47054pt too wide) in paragraph at lines 543--544
+[] $\OML/cmm/m/it/12 ColorRecolor\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 i\OT1/cmr/m/
+n/12 ] \OMS/cmsy/m/n/12   \OML/cmm/m/it/12 RecoloredBackground\OT1/cmr/m/n/12 [
+\OML/cmm/m/it/12 Background:index\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ColorsOrig\O
+T1/cmr/m/n/12 [\OML/cmm/m/it/12 j\OT1/cmr/m/n/12 ])]$ 
+ []
+
+<recolor.png, id=133, 1211.52625pt x 707.64375pt>
+File: recolor.png Graphic file (type png)
+ <use recolor.png>
+Package pdftex.def Info: recolor.png used on input line 602.
+(pdftex.def)             Requested size: 216.81pt x 126.63612pt.
+ [22]
+[23 <./recolor.png (PNG copy)>]
+Overfull \hbox (24.10915pt too wide) in paragraph at lines 631--640
+ [] 
+ []
+
+<luminanceDTEP.png, id=140, 1157.32375pt x 652.4375pt>
+File: luminanceDTEP.png Graphic file (type png)
+ <use luminanceDTEP.png>
+Package pdftex.def Info: luminanceDTEP.png used on input line 664.
+(pdftex.def)             Requested size: 433.62001pt x 244.44444pt.
+
+[24] <contrastDTEP.png, id=144, 1143.27126pt x 663.47874pt>
+File: contrastDTEP.png Graphic file (type png)
+
+<use contrastDTEP.png>
+Package pdftex.def Info: contrastDTEP.png used on input line 672.
+(pdftex.def)             Requested size: 433.62001pt x 251.6386pt.
+ [25 <./luminanceDTEP.png (PNG copy)>]
+<SortedLuminanceDTEP.png, id=149, 1632.0975pt x 890.32625pt>
+File: SortedLuminanceDTEP.png Graphic file (type png)
+
+<use SortedLuminanceDTEP.png>
+Package pdftex.def Info: SortedLuminanceDTEP.png used on input line 682.
+(pdftex.def)             Requested size: 433.62001pt x 236.54666pt.
+
+<SortedContrast.png, id=150, 815.045pt x 614.295pt>
+File: SortedContrast.png Graphic file (type png)
+ <use SortedContrast.png>
+Package pdftex.def Info: SortedContrast.png used on input line 690.
+(pdftex.def)             Requested size: 433.62001pt x 326.82146pt.
+)
+[26 <./contrastDTEP.png (PNG copy)>] [27 <./SortedLuminanceDTEP.png>] [28]
+[29] [30] [31] [32] [33] [34] [35] [36] [37] [38] [39 <./SortedContrast.png>]
 \openout2 = `sampleAppendix.aux'.
 
- (./sampleAppendix.tex
+
+(./sampleAppendix.tex
 Appendix A.
-) [29
+) [40
 
 
 
@@ -1148,10 +1218,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 15189 strings out of 495059
- 275560 string characters out of 3182030
- 384523 words of memory out of 3000000
- 17934 multiletter control sequences out of 15000+200000
+ 15224 strings out of 495059
+ 276287 string characters out of 3182030
+ 385604 words of memory out of 3000000
+ 17964 multiletter control sequences out of 15000+200000
  29030 words of font info for 62 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  56i,15n,75p,1544b,905s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1167,10 +1237,10 @@ y8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/urw/times/utmri8a.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/urw/zapfding/uzdr.pfb>
-Output written on thesis.pdf (41 pages, 1245709 bytes).
+Output written on thesis.pdf (52 pages, 1670492 bytes).
 PDF statistics:
- 201 PDF objects out of 1000 (max. 8388607)
- 134 compressed objects within 2 object streams
+ 243 PDF objects out of 1000 (max. 8388607)
+ 158 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 43 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 68 words of extra memory for PDF output out of 10000 (max. 10000000)
 

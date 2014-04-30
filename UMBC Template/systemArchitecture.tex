@@ -411,8 +411,11 @@ We developed following algorithm implementing approach mentioned in SPRWeb to co
 \end{algorithm}
 
 
-\subsubsection{Performance Improvement in SPRWeb}
+\subsubsection{Performance Improvement in SPRWeb} 
 \label{Improvement in SPRWeb}
+
+
+
 While implementing SPRWeb to do performance comparison, we came across some redundant calculations which were happening at every step. By storing the result of those calculations once and then reusing them gave us a significant performance improvement.
 
 \begin{itemize}
@@ -478,5 +481,216 @@ O(n).
 
 \end{itemize}
 
-\subsection{SECTION-TITLE}
-\label{SECTION-LABEL}
+\section{Our Approach}
+\label{Our Approach}
+While browsing the content on-line, specially reading, color of the text and the background are of key significance. Contrast between those two colors is one of the several important factors among other factors as mentioned in Definitions sections. SPRWeb tries to optimize the cost corresponding to perceptual naturalness, perceptual differentiability, subjective naturalness and subjective differentiability for the entire parsed set of colors. But at the very instant when user is reading a particular element of a web page, he/she may not be concerned about the other elements of the page. Therefore, we can optimize the cost corresponding to various factors for a particular element of the web page first and then repeat the same process for all the remaining elements. 
+
+
+The idea is that while optimizing the various factors for a particular element rather than the whole web page, we will have more color options to choose from and thus the possibility of doing quantitatively better.
+
+
+We divide a web page in elements based on the foreground-background color combination. For example, if a web page has two division elements, each having one color for background and one for the foreground text color, then the web page has two elements to be processed. Each element having one foreground-background(fg-bg) color pair. We define, a color pair as a combination of foreground and background for a particular element on a page.
+
+Initial step of our algorithm parses out such fg-bg color pairs. Such fg-bg color pairs can be extracted by analysis of HTML Document Object Model(DOM) structure and CSS files. One of the possible implementations is shown later in the section. Once we have all the the color pairs parsed out, we perform our algorithm on each of the color pair. Pseudo code of the algorithm is given in Algorithm 10. A textual description is as follows:
+
+\textbf{OurApproach} defines our tool. The input is the CSS file corresponding to the web page and the Document Object Model(DOM) of the web page. Output is a CSS file which is recolored using our tool. \textbf{OurApproach} calls \textbf{NewCSSParser} whose input is also a CSS file and the DOM structure. The output is the pairs of foreground-background colors present in the CSS file. Procedure like \textbf{NewCSSParser} can be implemented by analyzing the DOM model and the CSS file both. 
+
+
+In the CSS file, we can read the contents as a string and use regular expressions to parse the IDs and classes which it has and their corresponding colors in block.A mapping can be maintained which has IDs and .class as keys and a list as value. List contains the color properties(foreground and background) in that ID or class.
+
+  
+To analyze the DOM structure of HTML web page, we can use tools such as BeautifulSoup. The Default pair is foreground and background colors of the body tag. We can take a default value if they are not defined. Using such modules, we can traverse the DOM tree and check the class or ID which they are using. If no class or IDs or font color attributes are present that means they simply inherit the color of the parent and no new color is added to the system. But if there is some ID or class or color or font color defined, we retrieve its color property from dictionary maintained and report a new pair. Pairs are stored in separate lists like foreground color in one list and background color in other list. 
+
+
+After we obtain a \textbf{Foreground} and \textbf{Background} color list, we pass one pair at once to procedure \textbf{FindRecolor}. \textbf{FindRecolor} returns the recolored pair corresponding to the input color. It optimizes the naturalness and differentiability among pairs. The three major steps which are present in \textbf{FindRecolor} can be explained as follows:
+
+\begin{itemize}
+
+\item {\textbf{Preserving naturalness:} } In the first step, we find a replacement $fg^{\prime}$ of a color $fg$ from a pair fg-bg in DTEP space. The replacement is such that the distance between $fg$ and $fg^{\prime}$ is as minimum as possible. This optimization maintains one of the perceptual naturalness as defined in SPRWeb[]. This ensures that the replacement color is as close to the original color as possible and there is no dramatic shift in replacement colors from original colors.
+
+\item{\textbf{Preserving differentiability:} } In the second step, we draw a shell around $fg^{\prime}$ with internal radius as $d-e$ and outer radius as $d+e$, to obtain a possible set of colors for choosing a replacement $bg^{\prime}$ for $bg$. $d$ is the distance between original fg-bg color and $e$ is the factor introduced to ensure that we reach a solution. This step optimizes the perceptual differentiability property. This perceptual differentiability is different from what defined in SPRWeb. According to this property we try to maintain the contrast as it was present in original pair.
+
+\item{\textbf{Preserving naturalness:} } In the third step, we choose a replacement $bg^{\prime}$ for $bg$ in possible set $bg$ such that the distance between $bg$ and $bg^{\prime}$ is minimum, again maintaining the perceptual naturalness property. 
+
+\end{itemize}
+
+After we obtain the list of replacements for \textbf{Foreground} and \textbf{Background}, we need a list of replacement colors of size equal to original colors present CSS file. Such a list is needed to replace colors back in original CSS and also to make sure that if a color is present in both background and foreground of different elements, then no conflict should arise. To achieve this, we first search for a color, present in original color list, in Foreground and Background color list. If the same color is present both in Foreground and Background then that means we have two candidate replacements for the same color. We choose a replacment for both the colors such that we get minimum cost of naturalness and differentiability in the pairs that contain those two colors. 
+
+If a color is present only in Foreground and Background then we just put replacement of Foreground or Background in the replacement color list. 
+
+After obtaining the replacement color list, we rewrite the CSS files reflecting new colors. 
+
+\begin{algorithm}[!htb]
+\caption{OurApproach}\label{Our Approach}
+\begin{algorithmic}[1]
+\Procedure{OurApproach(CSSFile,DOM)}{}
+\State ${Foreground,Background,ColorMap} \gets \textit{NewCSSParser(CSSFile,DOM)}$
+\State $ColorsOrig \gets HexToCIELab(Foreground \textbf{U} Background)$
+\For{$j \gets 1\textrm{ to } Foreground.length$}
+	\State $RecoloredForeground[i], RecoloredBackground[i] \gets FindRecolor(HexToCIELAB(Foreground[i]),HexToCIELAB(Background[i]))$
+\EndFor
+\For{$j \gets 1\textrm{ to } ColorsOrig.length$}
+	\If{$Foreground.count(ColorsOrig[i])!= 0$}
+	 \State $FIndex \gets Foreground.index(ColorsOrig[i])$
+		\If {$Background.count(ColorsOrig[i])!=0$}
+			\State $BIndex \gets Background.index(ColorsOrig[i])$
+	\State $i \gets x such min{dist(RecoloredForeground[x],RecoloredBackground[x])-dist(Foreground[x],Background[x])+ dist(RecoloredForeground[x],Foreground[x]),x \in{FIndex,BIndex} }$
+			\State $ColorRecolor[i] \gets ColorsOrig[i]$
+		\Else
+		\State $ColorRecolor[i] \gets RecoloredForeground[FIndex]$
+		\EndIf	
+	\EndIf
+	\State $ColorRecolor[i] \gets RecoloredBackground[Background.index(ColorsOrig[j])]$
+\EndFor
+\State $ColorsHex \gets CIELabToHex(ColorRecolor)$
+\State $NewCSSFile \gets ReplaceColors(CSSFile, ColorsHex, ColorMap)$
+\State \textbf{return} $NewCSSFile$
+\EndProcedure
+\algstore{myalg}
+\end{algorithmic}
+\end{algorithm}
+
+
+\begin{algorithm}[!htb]
+\caption{OurApproach:continue}\label{Our Approach:continue}
+\begin{algorithmic}[1]
+\algrestore{myalg}
+\Procedure{FindRecolor(fg,bg)}{}
+\State $minDist = MAXINF$
+\For{$j \gets 1\textrm{ to } DTEP$}
+	\If{$distance(bg,j) < minDist$}
+		\State $minDist = distance(bg,DTEP[j])$
+	\EndIf
+\EndFor
+\For{$j \gets 1\textrm{ to } DTEP$}
+	\If{$distance(bg,j) < minDist+0.5$}
+		\State $minDistCircle .append(distance(bg,DTEP[j]))$
+	\EndIf
+\EndFor
+\State $initialDifferentiability \gets distance(fg,bg)$
+\State $a \gets 1$
+\State $possibleSet \gets 0$
+\While{$possibleSet.length <=0 $}
+	\For{$j \gets 1\textrm{ to } DTEP$}
+		\If {$(distance(minDistCircle[0],DTEP[j]) > initialDiffrentiablity - a*0.1  and distance(minDistCircle[0],DTEP[j]) < initialDiffrentiablity + a*0.1):$}
+			\State $possibeSet.append(DTEP[j])$
+		\EndIf
+		\State $a = a*2$
+	\EndFor
+\EndWhile
+\State $minDist \gets MAXINF$
+\For{$j \gets 1\textrm{ to } possibleSet$}
+	\If{$distance(fg,j) < minDist+0.5$}
+		\State $minDist = distance(fg,possibleSet[j])$
+		\State $replacementFg = possibleSet[j]$
+	\EndIf
+\EndFor
+\State $\textbf{return} replacementFg,minDistCircle[0]$
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+
+
+\section{Maintaining minimum contrast} % (fold)
+\label{Maintaining minimum contrast}
+Contrast is one of the major factors which is important in making a web page readable. In all the techniques discussed, measures are taken to ensure that the original colors and the contrast among them are preserved as much as possible. But there can be a case in which a color pair of replaced foreground and background exist which doesn't meeting the contrast criteria for reading.
+
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=.5\linewidth]{recolor.png}
+\caption{Recoloring leading to bad contrast}
+\label{fig:sub1}
+\end{figure} 
+
+To resolve such conflicts, we can follow the W3C guidelines of contrast threshold as provided in WCAG 2.0. 
+
+\subsection{W3C guidelines} % (fold)
+\label{W3C guidelines}
+
+\begin{itemize}
+\item{}this technique is needed to make sure that users can read text that is presented over a background. 
+
+\item{}If the background is a solid color (or all black or all white) then the relative luminance of the text can be maintained by making sure that each of the text letters have 4.5:1 contrast ratio with the background.
+
+\item{}If the background or the letters vary in relative luminance (or are patterned) then the background around the letters can be chosen or shaded so that the letters maintain a 4.5:1 contrast ratio with the background behind them even if they do not have that contrast ratio with the entire background.
+
+\item{}For example, if a letter is lighter at the top than it is a the bottom, it may be difficult to maintain the contrast ratio between the letter and the background over the full letter. In this case, the designer might darken the background behind the letter, or add a thin black outline (at least one pixel wide) around the letter in order to keep the contrast ratio between the letter and the background above 4.5:1.
+
+\item{}The contrast ratio can sometimes be maintained by changing the relative luminance of the letters as the relative luminance of the background changes across the page.
+
+\end{itemize}
+
+The procedure to implement the method as suggested by W3C is follows:
+
+\begin{itemize}
+\item{\textbf{Measure the relative luminance:}} of foreground text using the formula:
+\begin{figure}[!htb]
+  \centering
+\[ L = 0.2126 * R + 0.7152 * G + 0.0722 * B\]
+  \begin{tabular}{@{}>{$}l<{$}l@{}}
+    $R$ & if $R_{sRGB} <= 0.03928$ then $R = R_{sRGB}/12.92$ else $R = ((R_{sRGB} + 0.055)/1.055)^{2.4}$\\
+    $G$ & if $G_{sRGB} <= 0.03928$ then $G = G_{sRGB}/12.92$ else $G = ((G_{sRGB} +0.055)/1.055)^{2.4}$\\
+    $B$ & if $B_{sRGB} <= 0.03928$ then $B = B_{sRGB}/12.92$ else $B = ((B_{sRGB} +0.055)/1.055)^{2.4}$\\
+  	R_{sRGB} & $R_{8bit}/255$\\
+  	G_{sRGB} & $G_{8bit}/255$\\
+	B_{sRGB} & $B_{8bit}/255$\\
+  \end{tabular}
+\end{figure}
+
+\item{}Measure the relative luminance of the background pixels immediately next to the letter using same formula.
+\item{}Calculate the contrast ratio using the following formula.
+\begin{figure}[!htb]
+  \centering
+\[ contrast = (L1 + 0.05) / (L2 + 0.05)\]
+  \begin{tabular}{@{}>{$}l<{$}l@{}}
+    $L1$ & Relative luminance of the lighter of the foreground or background colors\\
+    $L2$ & Relative luminance of the darker of the foreground or background colors.\\
+  \end{tabular}
+\end{figure}
+\item{}Check that the contrast ratio is equal to or greater than 4.5:1
+\end{itemize}
+
+
+
+
+\subsection{Including W3C guidelines in our approach} % (fold)
+\label{Including W3C guidelines}
+
+To include W3C guidelines in our approach, we analyzed the luminance values of the colors present in DTEP space. Following is the plot which was obtained: X-axis is index of DTEP color. Y-axis is luminance value. The graph is oscillating in nature.
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\linewidth]{luminanceDTEP.png}
+\caption{Luminance plot for DTEP}
+\label{fig:LuminancePlot}
+\end{figure} 
+
+If we see the plot of contrast ratio of a color with the rest of DTEP colors, it would be as follows:
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\linewidth]{contrastDTEP.png}
+\caption{contrast plot for DTEP}
+\label{fig:ContrastPlot}
+\end{figure}
+If we observe we can see that the graph is particularly divided in two regions, one has a decreasing contrast ratio values followed by a zero point and then we have a region where contrast ratio is somewhat increasing. 
+
+
+If we arrange the DTEP set according to the luminance values, we can obtain a graph like:
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\linewidth]{SortedLuminanceDTEP.png}
+\caption{SortedLuminancePlot}
+\label{fig:LuminanceSortedPlot}
+\end{figure}
+
+And using this same sorted DTEP set, we can obtain the contrast ratio graph of one of the colors and the rest of the DTEP members as follows:
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\linewidth]{SortedContrast.png}
+\caption{Sorted contrast plot}
+\label{fig:SortedContrastPlot}
+\end{figure}
+% subsection subsection_name (end)
+
+% section section_name (end)
