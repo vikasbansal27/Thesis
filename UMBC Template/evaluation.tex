@@ -386,10 +386,100 @@ By analyzing the total cost comparison for complex web pages, we found that out 
 \section{Minimum Contrast}
 \label{Minimum Contrast}
 
+To evaluate the minimum contrast algorithm that we suggested, we took some simple web pages and recolored them using our tool and SPRWeb. 
+
+Fig 4.16 shows the the simple web pages that were used to compare two tools and Fig 4.17, 4.18 shows the output of the two tools. 
 
 
-\subsection{SECTION-TITLE}
-\label{SECTION-LABEL}
+\begin{figure}
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{Original1.png}
+  \caption{Simple 1}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{Original2.png}
+  \caption{Simple 2}
+  \label{fig:sub2}
+\end{subfigure}
+\caption{Simple web pages for testing}
+\label{fig:test}
+\end{figure}  
 
-\subsection{SECTION-TITLE}
-\label{SECTION-LABEL}
+
+\begin{figure}
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{SPRWebrecolored1.png}
+  \caption{Recolored by SPRWeb}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{recoloredbyus1.png}
+  \caption{Recolored by our tool}
+  \label{fig:sub2}
+\end{subfigure}
+\caption{Recoloring simple web page 1(notice the contrast between top bar and background)}
+\label{fig:test}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{recoloredSprweb2.png}
+  \caption{Recolored by SPRWeb}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.9\linewidth]{recoloredOurs2.png}
+  \caption{Recolored by our tool}
+  \label{fig:sub2}
+\end{subfigure}
+\caption{Recoloring simple web page 2(notice the contrast between middle bars and the background)}
+\label{fig:test}
+\end{figure}
+
+Results show that our tool successfully induces contrast in the color pairs. Though the costs corresponding to other factors worsens but this version of tool is able to make sure that the W3C guideline of contrast threshold is maintained. In simple web pages, there are two pairs of colors - (top,background) and (middle, background). In recolored versions of simple 1, we can observe that the contrast in the pair (top,background) pair is better in our version than SPRWeb. There is no need to enhance contrast in top and middle as a pair as they don't exist as a pair on the web page. 
+
+Similarly in simple 2, the contrast in (middle,background) is better than that of SPRWeb. All these observations are also supported by numerical data present in Table 4.6.
+
+\begin{table}[!htb]
+\caption{Evaluation: Our approach (numbers in scaled CIELAB euclidean distance)}
+% title of Table
+\centering
+% used for centering table
+\begin{tabular}{c c c c c c c c c c c c c c c}
+% centered columns (4 columns)
+\hline\hline
+%inserts double horizontal lines
+Page & CRP1S & CRP1O & CRP2S & CRP2O & N-S & N-t & D-S & D-t & SN-S & SN-t & SD-S & SD-t\\ [0.5ex]
+
+% inserts table
+%heading
+\hline
+1& 5.7 & 4.5 & 3.6 & 4.5 & 29.1 & 26.6 & 0.1 & 12.4 & 0.6 & 1.9 & 1.3 & 4.7\\
+2& 1.9 & 4.6 & 3.9 & 4.5 & 43 & 66.5 & 0.1 & 12.4 & 0.3 & 2.9 & 1.7 & 2.3\\
+3& 2.5 & 4.5 & 7 & 18.2 & 30.6 & 33.5 & 3.6 & 14 & 0.3 & 1 & 0.9 & 0.8\\
+4& 9 & 9.6 & 5.4 & 4.5 & 15.8 & 26.4 & 0.9 & 30.9 & 0.1 & 1.1 & 0.5 & 1.8\\[1ex]
+
+\hline
+%inserts single line
+\end{tabular}
+\label{table:nonlin}
+\begin{tabular}{@{}>{$}l<{$}l@{}}
+    $CRP1S$ & Contrast ratio in pair 1 for SPRWeb version\\
+    $CRP1O$ & Contrast ratio in pair 1 for our version\\
+    $N$ & Naturalness\\
+    $D$ & Differentiability\\
+    $SN$ & Subjective Naturalness\\
+    $SD$ & Subjective Differentiability\\
+  \end{tabular}
+% is used to refer this table in the text
+\end{table}
