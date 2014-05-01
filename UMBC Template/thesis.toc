@@ -1,7 +1,7 @@
 \contentsline {chapter}{\uppercase {Dedication}}{ii}
 \contentsline {chapter}{\uppercase {ACKNOWLEDGMENTS}}{iii}
 \contentsline {chapter}{\uppercase {List of Figures}}{vi}
-\contentsline {chapter}{\uppercase {List of Tables}}{vii}
+\contentsline {chapter}{\uppercase {List of Tables}}{viii}
 \contentsline {chapter}{\numberline {Chapter{} 1}\uppercase {Introduction}}{1}
 \addvspace {10pt}
 \contentsline {section}{\numberline {1.1}SECTION-TITLE}{2}
@@ -27,9 +27,18 @@
 \contentsline {subsection}{\numberline {3.3.1}W3C guidelines}{23}
 \contentsline {subsection}{\numberline {3.3.2}Including W3C guidelines in our approach}{25}
 \contentsline {subsection}{\numberline {3.3.3}Implementation}{30}
-\contentsline {chapter}{\numberline {Appendix{} A}\uppercase {APPENDIX-TITLE}}{47}
+\contentsline {chapter}{\numberline {Chapter{} 4}\uppercase {Evaluation}}{47}
 \addvspace {10pt}
-\contentsline {section}{\numberline {A.1}SECTION-TITLE}{47}
-\contentsline {section}{\numberline {A.2}SECTION-TITLE}{47}
-\contentsline {subsection}{\numberline {A.2.1}SECTION-TITLE}{47}
-\contentsline {subsection}{\numberline {A.2.2}SECTION-TITLE}{47}
+\contentsline {section}{\numberline {4.1}Improvements in SPRWeb}{47}
+\contentsline {section}{\numberline {4.2}Pair-wised approach}{50}
+\contentsline {subsection}{\numberline {4.2.1}Simple web pages}{50}
+\contentsline {subsection}{\numberline {4.2.2}Complex web pages}{54}
+\contentsline {section}{\numberline {4.3}SECTION-TITLE}{58}
+\contentsline {subsection}{\numberline {4.3.1}SECTION-TITLE}{58}
+\contentsline {subsection}{\numberline {4.3.2}SECTION-TITLE}{58}
+\contentsline {chapter}{\numberline {Appendix{} A}\uppercase {APPENDIX-TITLE}}{63}
+\addvspace {10pt}
+\contentsline {section}{\numberline {A.1}SECTION-TITLE}{63}
+\contentsline {section}{\numberline {A.2}SECTION-TITLE}{63}
+\contentsline {subsection}{\numberline {A.2.1}SECTION-TITLE}{63}
+\contentsline {subsection}{\numberline {A.2.2}SECTION-TITLE}{63}
