@@ -2,19 +2,17 @@
 \thispagestyle{plain}
 
 \label{Introduction}
-Website colors specially which are used in foreground text and background are responsible to provide legibility in the content. In addition to providing legibility, they also influence the subjective responses from the users. Depending on the color, a website may seem heavy or light, high or low in temperature and may tell about busyness.
 
-While one solution to the problem of illegibility could be to educate web designers so that they only use a set of colors which are comfortable to both CVD and normal users. [we have developed one such technique - webpages colors downloaded]. Which is a kind of a prevention step. One such color combination could be to develop all the webpages using only black and white. But that itself defeats the purpose of existence of colors. Most of the web developers today, even being aware of the existence of CVD users, develop web pages considering only normal web users leading to confusion and frustration among CVD users.
+Normal color vision begins with the activation of three different types of cone cells, each sensitive to a different range of wavelength.   These are often called S cones, M cones, and L cones, for short, medium, and long wavelength; but they are also often referred to as blue cones, green cones, and red cones, respectively. Color vision deficiency (CVD) is a result of missing either one of the cones of a shift in sensitivity. Color perception of human can described by two orthogonal axis – a red-green axis and a blue-yellow axis. Most common type of deficiency is  along red-green axis.
 
-Another solution is more of a rectifying step. In this, we recolor existing ‘bad web pages’ to suit the need of both normal and CVD users.
-\section{SECTION-TITLE}
-\label{SECTION-LABEL}
+CVD is very common in humans affecting more than 5\% of the world's population. Colors convey important information in our daily lives. Colors, specially in web sites, influence users' experience significantly. Colors fulfill the basic need of providing legibility between foreground text and background, for example. In addition to this, they also influence the subjective responses. That is, depending on the color, a website may seem heavy or light, high or low in temperature and may tell about its busyness as well[3]. 
 
-\section{SECTION-TITLE}
-\label{SECTION-LABEL}
+CVD users are not able to differentiate between as many colors as a normal person can. As a result, they often are unable to understand the content on a web page designed keeping normal users in mind.  
+  
+One solution, a preventive measure, to the problem of illegibility could be to educate web designers so that they only use a set of colors which are differentiable to both CVD and normal users. The second solution, a curative one, is to recolor existing web pages (designed for normal users) keeping CVD users in mind.
 
-\subsection{SECTION-TITLE}
-\label{SECTION-LABEL}
+Several color schemes have been developed to implement the first solution[4][5]. The obvious disadvantage of the first solution is that we are restricting the web designer to stick to a particular scheme while designing. Several recoloring tools exist to implement the second solution. They mainly focus	on replacing original colors with similar colors to preserve naturalness and does well in preserving differentiability too. A recent tool, SPRWeb[6], preserves subjective responses as well. But none of the tools explore the foreground-background relationships of colors in a web page to preserve the mentioned factors. None of the tools makes sure that the recolored version of the web page has sufficient contrast[7].
 
-\subsection{SECTION-TITLE}
-\label{SECTION-LABEL}
+To address these issues, we first present an improvement on SPRWeb which significantly reduces the time complexity of finding the replacement colors while preserving naturalness, differentiability and subjectivity factors. After that we present our approach of parsing a web page to obtain foreground-background color pairs. We use this parsing approach and present a new 3 step algorithm to reach to the replacement color set. In the later section, we present a modified algorithm which makes sure that the replacement colors have the required contrast threshold[7]. 
+
+In evaluation we compared our algorithm with SPRWeb on naturalness, pair differentiability, subjective responses and total cost. Results show that our algorithm perform better in 37 of the 50 test pages and performs slightly less in 7 pages. Testing of our modified algorithm shows that our modified algorithm ensures that the required contrast[7] is present in recolored pages, while SPRWeb failing to make sure this in every case.   	

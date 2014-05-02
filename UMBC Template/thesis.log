@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.4.11)  1 MAY 2014 03:53
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.4.11)  2 MAY 2014 02:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -596,17 +596,7 @@ psfig: version 1.1
 \ps@stream=\read3
 ) (./thesis.aux (./approvalsheet.aux) (./curriculumvitae.aux) (./abstract.aux)
 (./titlepage.aux) (./copyright.aux) (./dedication.aux) (./acknowledgment.aux)
-(./introduction.aux
-
-LaTeX Warning: Label `SECTION-LABEL' multiply defined.
-
-
-LaTeX Warning: Label `SECTION-LABEL' multiply defined.
-
-
-LaTeX Warning: Label `SECTION-LABEL' multiply defined.
-
-) (./background.aux
+(./introduction.aux) (./background.aux
 
 LaTeX Warning: Label `Related Work' multiply defined.
 
@@ -783,20 +773,7 @@ LaTeX Warning: Label `fig:test' multiply defined.
 
 LaTeX Warning: Label `table:nonlin' multiply defined.
 
-) (./sampleAppendix.aux
-
-LaTeX Warning: Label `SECTION-LABEL' multiply defined.
-
-
-LaTeX Warning: Label `SECTION-LABEL' multiply defined.
-
-
-LaTeX Warning: Label `SECTION-LABEL' multiply defined.
-
-
-LaTeX Warning: Label `SECTION-LABEL' multiply defined.
-
-))
+) (./conclusion.aux))
 \openout1 = `thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 85.
@@ -929,17 +906,11 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 8.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 13.
-
-Underfull \hbox (badness 10000) in paragraph at lines 15--15
-\OT1/ptm/m/n/12 DEGREE-NAME,
- []
-
 LaTeX Font Info:    Try loading font information for U+msa on input line 26.
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 26.
-
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 ) [1
@@ -956,20 +927,16 @@ Non-PDF special ignored!
 ])
 \openout2 = `abstract.aux'.
 
- (./abstract.tex
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no ™ in font ptmr7t!
- [1
+ (./abstract.tex) [1
 
 
-]) [2]
+]
 \openout2 = `titlepage.aux'.
 
  (./titlepage.tex
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 5.
- [3
+ [2
 
 
 ])
@@ -1033,15 +1000,12 @@ LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
 Chapter 1.
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
-Missing character: There is no ˜ in font ptmr7t!
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no ™ in font ptmr7t!
-) [1
+Missing character: There is no “ in font ptmr7t!
+[1
 
 
 
-] [2]
+]) [2]
 \openout2 = `background.aux'.
 
  (./background.tex
@@ -1059,13 +1023,13 @@ Missing character: There is no “ in font ptmr7t!
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no “ in font ptmr7t!
- <Ishihara1.PNG, id=64, 144.54pt x 144.54pt>
+ <Ishihara1.PNG, id=61, 144.54pt x 144.54pt>
 File: Ishihara1.PNG Graphic file (type png)
  <use Ishihara1.PNG>
 Package pdftex.def Info: Ishihara1.PNG used on input line 47.
 (pdftex.def)             Requested size: 108.405pt x 108.40471pt.
 
-<Ishihara2.PNG, id=66, 144.54pt x 144.54pt>
+<Ishihara2.PNG, id=63, 144.54pt x 144.54pt>
 File: Ishihara2.PNG Graphic file (type png)
  <use Ishihara2.PNG>
 Package pdftex.def Info: Ishihara2.PNG used on input line 53.
@@ -1129,13 +1093,13 @@ Package caption Warning: \captionsetup{type*=...} or \captionof
 (caption)                outside box or environment on input line 39.
 See the caption package documentation for explanation.
 
-<hru1.png, id=104, 426.09187pt x 147.55125pt>
+<hru1.png, id=101, 426.09187pt x 147.55125pt>
 File: hru1.png Graphic file (type png)
  <use hru1.png>
 Package pdftex.def Info: hru1.png used on input line 48.
 (pdftex.def)             Requested size: 108.405pt x 37.53838pt.
 
-<hru2.png, id=105, 420.06938pt x 161.10187pt>
+<hru2.png, id=102, 420.06938pt x 161.10187pt>
 File: hru2.png Graphic file (type png)
  <use hru2.png>
 Package pdftex.def Info: hru2.png used on input line 54.
@@ -1194,13 +1158,13 @@ Overfull \hbox (58.76973pt too wide) in paragraph at lines 96--97
 
 LaTeX Warning: Float too large for page by 83.44064pt on input line 152.
 
-<ColorMapNormal.png, id=115, 370.38374pt x 402.50375pt>
+<ColorMapNormal.png, id=112, 370.38374pt x 402.50375pt>
 File: ColorMapNormal.png Graphic file (type png)
 
 <use ColorMapNormal.png>
 Package pdftex.def Info: ColorMapNormal.png used on input line 205.
 (pdftex.def)             Requested size: 108.405pt x 117.80403pt.
- <ColorMapCVD.png, id=116, 370.38374pt x 401.5pt>
+ <ColorMapCVD.png, id=113, 370.38374pt x 401.5pt>
 File: ColorMapCVD.png Graphic file (type png)
 
 <use ColorMapCVD.png>
@@ -1288,7 +1252,7 @@ n/12 ] \OMS/cmsy/m/n/12   \OML/cmm/m/it/12 RecoloredBackground\OT1/cmr/m/n/12 [
 T1/cmr/m/n/12 [\OML/cmm/m/it/12 j\OT1/cmr/m/n/12 ])]$ 
  []
 
-<recolor.png, id=136, 1211.52625pt x 707.64375pt>
+<recolor.png, id=133, 1211.52625pt x 707.64375pt>
 File: recolor.png Graphic file (type png)
  <use recolor.png>
 Package pdftex.def Info: recolor.png used on input line 602.
@@ -1299,46 +1263,46 @@ Overfull \hbox (24.10915pt too wide) in paragraph at lines 631--640
  [] 
  []
 
-<luminanceDTEP.png, id=143, 1157.32375pt x 652.4375pt>
+<luminanceDTEP.png, id=140, 1157.32375pt x 652.4375pt>
 File: luminanceDTEP.png Graphic file (type png)
  <use luminanceDTEP.png>
 Package pdftex.def Info: luminanceDTEP.png used on input line 664.
 (pdftex.def)             Requested size: 433.62001pt x 244.44444pt.
 
-[24] <contrastDTEP.png, id=148, 1143.27126pt x 663.47874pt>
+[24] <contrastDTEP.png, id=144, 1143.27126pt x 663.47874pt>
 File: contrastDTEP.png Graphic file (type png)
 
 <use contrastDTEP.png>
 Package pdftex.def Info: contrastDTEP.png used on input line 672.
 (pdftex.def)             Requested size: 433.62001pt x 251.6386pt.
  [25 <./luminanceDTEP.png (PNG copy)>]
-<SortedLuminanceDTEP.png, id=152, 1632.0975pt x 890.32625pt>
+<SortedLuminanceDTEP.png, id=149, 1632.0975pt x 890.32625pt>
 File: SortedLuminanceDTEP.png Graphic file (type png)
 
 <use SortedLuminanceDTEP.png>
 Package pdftex.def Info: SortedLuminanceDTEP.png used on input line 682.
 (pdftex.def)             Requested size: 433.62001pt x 236.54666pt.
 
-<SortedContrast.png, id=153, 815.045pt x 614.295pt>
+<SortedContrast.png, id=150, 815.045pt x 614.295pt>
 File: SortedContrast.png Graphic file (type png)
  <use SortedContrast.png>
 Package pdftex.def Info: SortedContrast.png used on input line 692.
 (pdftex.def)             Requested size: 433.62001pt x 326.82146pt.
 
 [26 <./contrastDTEP.png (PNG copy)>] [27 <./SortedLuminanceDTEP.png>]
-<CR1.png, id=161, 1175.1102pt x 641.0349pt>
+<CR1.png, id=158, 1175.1102pt x 641.0349pt>
 File: CR1.png Graphic file (type png)
  <use CR1.png>
 Package pdftex.def Info: CR1.png used on input line 712.
 (pdftex.def)             Requested size: 433.62001pt x 236.5434pt.
 
-<CR2.png, id=162, 1175.1102pt x 641.0349pt>
+<CR2.png, id=159, 1175.1102pt x 641.0349pt>
 File: CR2.png Graphic file (type png)
  <use CR2.png>
 Package pdftex.def Info: CR2.png used on input line 719.
 (pdftex.def)             Requested size: 433.62001pt x 236.5434pt.
 
-<CR3.png, id=163, 815.045pt x 614.295pt>
+<CR3.png, id=160, 815.045pt x 614.295pt>
 File: CR3.png Graphic file (type png)
  <use CR3.png>
 Package pdftex.def Info: CR3.png used on input line 726.
@@ -1390,18 +1354,18 @@ Missing character: There is no ™ in font ptmr7t!
 
 LaTeX Warning: Text page 48 contains only floats.
 
-[48] <bar1.png, id=235, 833.1125pt x 314.17375pt>
+[48] <bar1.png, id=231, 833.1125pt x 314.17375pt>
 File: bar1.png Graphic file (type png)
  <use bar1.png>
 Package pdftex.def Info: bar1.png used on input line 61.
 (pdftex.def)             Requested size: 433.62001pt x 163.52469pt.
 
-<bar2.png, id=236, 782.925pt x 266.9975pt>
+<bar2.png, id=232, 782.925pt x 266.9975pt>
 File: bar2.png Graphic file (type png)
  <use bar2.png>
 Package pdftex.def Info: bar2.png used on input line 70.
 (pdftex.def)             Requested size: 433.62001pt x 147.87572pt.
- [49 <./bar1.png (PNG copy)>] <screenshotofsimple1.png, id=240, 481.8pt x 803.0
+ [49 <./bar1.png (PNG copy)>] <screenshotofsimple1.png, id=237, 481.8pt x 803.0
 pt>
 File: screenshotofsimple1.png Graphic file (type png)
 
@@ -1409,45 +1373,45 @@ File: screenshotofsimple1.png Graphic file (type png)
 Package pdftex.def Info: screenshotofsimple1.png used on input line 92.
 (pdftex.def)             Requested size: 108.405pt x 180.6672pt.
 
-<screenshotofsimple2.png, id=241, 481.8pt x 803.0pt>
+<screenshotofsimple2.png, id=238, 481.8pt x 803.0pt>
 File: screenshotofsimple2.png Graphic file (type png)
 
 <use screenshotofsimple2.png>
 Package pdftex.def Info: screenshotofsimple2.png used on input line 98.
 (pdftex.def)             Requested size: 108.405pt x 180.6672pt.
- <SimpleGP.png, id=242, 692.5875pt x 387.4475pt>
+ <SimpleGP.png, id=239, 692.5875pt x 387.4475pt>
 File: SimpleGP.png Graphic file (type png)
 
 <use SimpleGP.png>
 Package pdftex.def Info: SimpleGP.png used on input line 150.
 (pdftex.def)             Requested size: 433.62001pt x 242.57974pt.
- <simpleGS.png, id=243, 594.22pt x 343.2825pt>
+ <simpleGS.png, id=240, 594.22pt x 343.2825pt>
 File: simpleGS.png Graphic file (type png)
 
 <use simpleGS.png>
 Package pdftex.def Info: simpleGS.png used on input line 157.
 (pdftex.def)             Requested size: 433.62001pt x 250.51556pt.
  [50 <./bar2.png (PNG copy)>]
-<simpleRP.png, id=247, 720.6925pt x 331.2375pt>
+<simpleRP.png, id=244, 720.6925pt x 331.2375pt>
 File: simpleRP.png Graphic file (type png)
  <use simpleRP.png>
 Package pdftex.def Info: simpleRP.png used on input line 208.
 (pdftex.def)             Requested size: 433.62001pt x 199.29494pt.
  [51 <./screenshotofsimple1.png> <./screenshotofsimple2.png> <./SimpleGP.png (P
 NG copy)>]
-<simpleRS.png, id=251, 651.43375pt x 332.24126pt>
+<simpleRS.png, id=248, 651.43375pt x 332.24126pt>
 File: simpleRS.png Graphic file (type png)
  <use simpleRS.png>
 Package pdftex.def Info: simpleRS.png used on input line 215.
 (pdftex.def)             Requested size: 433.62001pt x 221.1607pt.
 
-<simpleGtotal.png, id=252, 716.6775pt x 390.45876pt>
+<simpleGtotal.png, id=249, 716.6775pt x 390.45876pt>
 File: simpleGtotal.png Graphic file (type png)
  <use simpleGtotal.png>
 Package pdftex.def Info: simpleGtotal.png used on input line 225.
 (pdftex.def)             Requested size: 433.62001pt x 236.24911pt.
 
-<simpleRtotal.png, id=253, 651.43375pt x 362.35374pt>
+<simpleRtotal.png, id=250, 651.43375pt x 362.35374pt>
 File: simpleRtotal.png Graphic file (type png)
  <use simpleRtotal.png>
 Package pdftex.def Info: simpleRtotal.png used on input line 232.
@@ -1461,37 +1425,37 @@ LaTeX Warning: Text page 55 contains only floats.
 
 LaTeX Warning: Float too large for page by 30.47186pt on input line 334.
 
-<complexGP.png, id=267, 725.71124pt x 355.3275pt>
+<complexGP.png, id=264, 725.71124pt x 355.3275pt>
 File: complexGP.png Graphic file (type png)
  <use complexGP.png>
 Package pdftex.def Info: complexGP.png used on input line 341.
 (pdftex.def)             Requested size: 433.62001pt x 212.31436pt.
 
-<complexGS.png, id=268, 687.56876pt x 354.32375pt>
+<complexGS.png, id=265, 687.56876pt x 354.32375pt>
 File: complexGS.png Graphic file (type png)
  <use complexGS.png>
 Package pdftex.def Info: complexGS.png used on input line 348.
 (pdftex.def)             Requested size: 433.62001pt x 223.45761pt.
 
-<complexRP.png, id=269, 801.99625pt x 378.41376pt>
+<complexRP.png, id=266, 801.99625pt x 378.41376pt>
 File: complexRP.png Graphic file (type png)
  <use complexRP.png>
 Package pdftex.def Info: complexRP.png used on input line 356.
 (pdftex.def)             Requested size: 433.62001pt x 204.60022pt.
 
-<complexRS.png, id=270, 756.8275pt x 348.30125pt>
+<complexRS.png, id=267, 756.8275pt x 348.30125pt>
 File: complexRS.png Graphic file (type png)
  <use complexRS.png>
 Package pdftex.def Info: complexRS.png used on input line 363.
 (pdftex.def)             Requested size: 433.62001pt x 199.5595pt.
 
-<complexGtotal.png, id=271, 668.4975pt x 384.43625pt>
+<complexGtotal.png, id=268, 668.4975pt x 384.43625pt>
 File: complexGtotal.png Graphic file (type png)
  <use complexGtotal.png>
 Package pdftex.def Info: complexGtotal.png used on input line 372.
 (pdftex.def)             Requested size: 433.62001pt x 249.37025pt.
 
-<complexRtotal.png, id=272, 647.41875pt x 414.54875pt>
+<complexRtotal.png, id=269, 647.41875pt x 414.54875pt>
 File: complexRtotal.png Graphic file (type png)
  <use complexRtotal.png>
 Package pdftex.def Info: complexRtotal.png used on input line 379.
@@ -1506,39 +1470,39 @@ Overfull \vbox (10.56229pt too high) has occurred while \output is active []
 
 
 [58 <./complexGP.png (PNG copy)> <./complexGS.png (PNG copy)>]
-<Original1.png, id=282, 1287.81125pt x 677.53125pt>
+<Original1.png, id=279, 1287.81125pt x 677.53125pt>
 File: Original1.png Graphic file (type png)
  <use Original1.png>
 Package pdftex.def Info: Original1.png used on input line 398.
 (pdftex.def)             Requested size: 195.12767pt x 102.65912pt.
 
-<Original2.png, id=283, 1283.79625pt x 670.505pt>
+<Original2.png, id=280, 1283.79625pt x 670.505pt>
 File: Original2.png Graphic file (type png)
  <use Original2.png>
 Package pdftex.def Info: Original2.png used on input line 404.
 (pdftex.def)             Requested size: 195.12767pt x 101.91168pt.
 
-<SPRWebrecolored1.png, id=284, 1283.79625pt x 678.535pt>
+<SPRWebrecolored1.png, id=281, 1283.79625pt x 678.535pt>
 File: SPRWebrecolored1.png Graphic file (type png)
 
 <use SPRWebrecolored1.png>
 Package pdftex.def Info: SPRWebrecolored1.png used on input line 417.
 (pdftex.def)             Requested size: 195.12767pt x 103.13217pt.
 
-<recoloredbyus1.png, id=285, 1283.79625pt x 676.5275pt>
+<recoloredbyus1.png, id=282, 1283.79625pt x 676.5275pt>
 File: recoloredbyus1.png Graphic file (type png)
 
 <use recoloredbyus1.png>
 Package pdftex.def Info: recoloredbyus1.png used on input line 423.
 (pdftex.def)             Requested size: 195.12767pt x 102.82704pt.
- <recoloredSprweb2.png, id=286, 1284.8pt x 674.52pt>
+ <recoloredSprweb2.png, id=283, 1284.8pt x 674.52pt>
 File: recoloredSprweb2.png Graphic file (type png)
 
 <use recoloredSprweb2.png>
 Package pdftex.def Info: recoloredSprweb2.png used on input line 435.
 (pdftex.def)             Requested size: 195.12767pt x 102.43959pt.
 
-<recoloredOurs2.png, id=287, 1285.80376pt x 676.5275pt>
+<recoloredOurs2.png, id=284, 1285.80376pt x 676.5275pt>
 File: recoloredOurs2.png Graphic file (type png)
 
 <use recoloredOurs2.png>
@@ -1553,10 +1517,10 @@ Overfull \hbox (70.59332pt too wide) in paragraph at lines 458--485
 /Original1.png (PNG copy)> <./Original2.png (PNG copy)>] [62] [63 <./SPRWebreco
 lored1.png (PNG copy)> <./recoloredbyus1.png (PNG copy)> <./recoloredSprweb2.pn
 g (PNG copy)> <./recoloredOurs2.png (PNG copy)>] [64]
-\openout2 = `sampleAppendix.aux'.
+\openout2 = `conclusion.aux'.
 
- (./sampleAppendix.tex
-Appendix A.
+ (./conclusion.tex
+Chapter 5.
 ) [65
 
 
@@ -1567,16 +1531,16 @@ No file thesis.bbl.
 (./thesis.aux (./approvalsheet.aux) (./curriculumvitae.aux) (./abstract.aux)
 (./titlepage.aux) (./copyright.aux) (./dedication.aux) (./acknowledgment.aux)
 (./introduction.aux) (./background.aux) (./systemArchitecture.aux)
-(./evaluation.aux) (./sampleAppendix.aux))
+(./evaluation.aux) (./conclusion.aux))
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 15375 strings out of 495059
- 279002 string characters out of 3182030
- 396261 words of memory out of 3000000
- 18083 multiletter control sequences out of 15000+200000
+ 15374 strings out of 495059
+ 278967 string characters out of 3182030
+ 396248 words of memory out of 3000000
+ 18082 multiletter control sequences out of 15000+200000
  29030 words of font info for 62 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  56i,15n,75p,1544b,905s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1592,10 +1556,10 @@ y8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/urw/times/utmri8a.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/urw/zapfding/uzdr.pfb>
-Output written on thesis.pdf (78 pages, 2030789 bytes).
+Output written on thesis.pdf (77 pages, 2032774 bytes).
 PDF statistics:
- 354 PDF objects out of 1000 (max. 8388607)
- 215 compressed objects within 3 object streams
+ 351 PDF objects out of 1000 (max. 8388607)
+ 213 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  193 words of extra memory for PDF output out of 10000 (max. 10000000)
 

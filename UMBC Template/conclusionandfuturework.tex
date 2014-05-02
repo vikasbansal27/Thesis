@@ -1,0 +1,8 @@
+\chapter{conclusion}
+\thispagestyle{plain}
+
+\label{Conclusion and future work}
+
+To enable CVD users to have a similar web experience as normal users, we proposed an algorithm based on pair-wised parsing of colors from the web page. We also present a modification to our algorithm to ensure that the replacement color pairs have at least a contrast ratio of 4.5:1 as suggested by W3C guidelines.
+
+In future, we plan to extend our tool to include image recoloring as well and develop a browser plug in for it. To deal with images, we will have to incorporate image processing techniques in our current tool. In our algorithm, we parse all the color pairs and find their replacement one by one. Instead, we can explore parallel computing concepts to save us some computation time. Saving computational time would positively support our algorithm in being a browser plug in. We can also extend our modification of algorithm, where we ensure the contrast of 4.5, to normal users. For example, if there are some web pages which have bad contrast in foreground-background color pairs, then our tool would be able to detect and correct the same.   
