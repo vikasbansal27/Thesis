@@ -9,7 +9,7 @@ In this section we will learn about CVD and the existing related work to deal wi
 \label{Color Vision Deficiency}
 
 
-Color vision deficiency, is the inability or decreased ability to see color, or perceive color differences, under normal lighting conditions. Color blindness affects a significant percentage of the population.  There is no actual blindness but there is a deficiency of color vision. The most usual cause is a fault in the development of one or more sets of retinal cones that perceive color in light and transmit that information to the optic nerve. This type of color blindness is usually a sex-linked condition. The genes that produce photo-pigments are carried on the X chromosome; if some of these genes are missing or damaged, color blindness will be expressed in males with a higher probability than in females because males only have one X chromosome (in females, a functional gene on only one of the two X chromosomes is sufficient to yield the needed photo-pigments).
+Color vision deficiency [1], is the inability or decreased ability to see color, or perceive color differences, under normal lighting conditions. Color blindness affects a significant percentage of the population [2].  There is no actual blindness but there is a deficiency of color vision. The most usual cause is a fault in the development of one or more sets of retinal cones that perceive color in light and transmit that information to the optic nerve. This type of color blindness is usually a sex-linked condition. The genes that produce photo-pigments are carried on the X chromosome; if some of these genes are missing or damaged, color blindness will be expressed in males with a higher probability than in females because males only have one X chromosome (in females, a functional gene on only one of the two X chromosomes is sufficient to yield the needed photo-pigments).
 
 Color blindness can also be produced by physical or chemical damage to the eye, the optic nerve, or parts of the brain. For example, people with achromatopsia suffer from a completely different disorder, but are nevertheless unable to see colors.
 
@@ -32,7 +32,7 @@ By cause CVD can be classified in to three types:
 \section{Diagnosis}
 \label{Diagnosis}
 
-The Ishihara color test, which consists of a series of pictures of colored spots, is the test most often used to diagnose red–green color deficiencies. A figure (usually one or more Arabic digits) is embedded in the picture as a number of spots in a slightly different color, and can be seen with normal color vision, but not with a particular color defect. The full set of tests has a variety of figure/background color combinations, and enable diagnosis of which particular visual defect is present.
+The Ishihara color test [14], which consists of a series of pictures of colored spots, is the test most often used to diagnose red–green color deficiencies. A figure (usually one or more Arabic digits) is embedded in the picture as a number of spots in a slightly different color, and can be seen with normal color vision, but not with a particular color defect. The full set of tests has a variety of figure/background color combinations, and enable diagnosis of which particular visual defect is present.
 
 To test the type of color blindness users have, we did the Ishihara color test on each of them during our user study of the algorithm.
 
@@ -54,7 +54,7 @@ To test the type of color blindness users have, we did the Ishihara color test o
   \caption{Plate No. 13 (6)}
   \label{fig:sub2}
 \end{subfigure}
-\caption{Ishihara Test [Wikipedia]}
+\caption{Ishihara Test}
 \label{fig:test}
 \end{figure}
 
@@ -66,9 +66,9 @@ To test the type of color blindness users have, we did the Ishihara color test o
 \section{Related Work}
 \label{Related Work}
 
-Quite a work has been done to both simulate and correct CVD. Ichikawa et al. [16sprweb] were the first publishers of a website recolouring tool that improves accessibility for people with CVD. Iaccarino et al. [15sprweb] proposed the use of edge services to recolour website images in transit to the user. ColorBlindnessSimulateCorrect by Seewald Solutions is one of the examples of an application developed to both simulate and correct CVD effect. It uses a linear transformation on rgb input. ‘Daltonize’ developed by www.daltonize.org can be used to recolor web pages. They first convert RGB values of a color to LMS values and then compensate for color blindness by shifting wavelengths away from the portion of the spectrum invisible to the dichromat, towards the visible portion.  Eyepilot [http://www.colorhelper.com/] enables computer users with red-green color blindness to decipher color-coded maps and graphs by letting the user place a floating window on top of any picture to distinguish among the various color fields. The GNOME[http://en.wikipedia.org/wiki/GNOME] desktop environment provides users with the option to switch a color filter on and off choosing from a set of possible color transformations that displace the colors in order to disambiguate them. While all these tools have proved to be effective in inducing differentiability in the content and thus providing legibility, but none of them have been able to retain the naturalness1, differentiability2 of the original web page.
+Quite a work has been done to both simulate and correct CVD. Ichikawa et al. [7] were the first publishers of a website recolouring tool that improves accessibility for people with CVD. Iaccarino et al. [21] proposed the use of edge services to recolour website images in transit to the user. ColorBlindnessSimulateCorrect by Seewald Solutions [8] is one of the examples of an application developed to both simulate and correct CVD effect. It uses a linear transformation on rgb input. ‘Daltonize’ developed by www.daltonize.org [9] can be used to recolor web pages. They first convert RGB values of a color to LMS values and then compensate for color blindness by shifting wavelengths away from the portion of the spectrum invisible to the dichromat, towards the visible portion.  Eyepilot [20] enables computer users with red-green color blindness to decipher color-coded maps and graphs by letting the user place a floating window on top of any picture to distinguish among the various color fields. The GNOME [19] desktop environment provides users with the option to switch a color filter on and off choosing from a set of possible color transformations that displace the colors in order to disambiguate them. While all these tools have proved to be effective in inducing differentiability in the content and thus providing legibility, but none of them have been able to retain the naturalness, differentiability of the original web page.
 
-One such tool which preserves naturalness and improves color differentiability is kuhn’s tool. One improvement on naturalness preservation was done by David et al. in SPRWeb[]. Which is also the basis of this thesis. SPRWeb performs better in preserving naturalness and differentiability than Kuhn’s tool. But it fails to make sure than all the foreground background color pairs have the minimum required contrast ratio threshold of 4.5 as per W3C guidelines.
+One such tool which preserves naturalness and improves color differentiability is kuhn’s [10 ]tool. One improvement on naturalness preservation was done by David et al. in SPRWeb [6]. Which is also the basis of this thesis. SPRWeb performs better in preserving naturalness and differentiability than Kuhn’s tool. But it fails to make sure than all the foreground background color pairs have the minimum required contrast ratio threshold of 4.5 as per W3C guidelines.
 
 \section{Definitions}
 \label{Related Work}
@@ -76,7 +76,7 @@ One such tool which preserves naturalness and improves color differentiability i
 \item{\textbf{O}: } Original set of colors as parsed from CSS files associated with the web page.
 \item{\textbf{R}: } Replaced set of colors as computed by the recoloring algorithm. And obviously, size of \textbf{R} is always equal to size of \textbf{O}.
 \item{\textbf{P}: } Number of color \textit{pairs} in a web page. A \textit{pair} of colors from a web page is of the form \textit{(fg,bg)}, where \textit{fg} is a foreground text color and \textit{bg} is a background color. There can be many such \textit{(fg,bg)} color pairs. 
-\item{\textbf{Perceptual naturalness[SPRweb]: }} It is a measure of how close is set \textbf{R} to set \textbf{O}. Ideally, if our algorithm is able to find a set such that \textbf{R} = \textbf{O} then the \textit{perceptual naturalness} will be maximum and the \textit{cost of naturalness} would be 0. \textit{Cost of naturalness} quantifies naturalness factor. As defined in SPRWeb[], \textit{cost of naturalness} can be quantified using the following expression:
+\item{\textbf{Perceptual naturalness[6]: }} It is a measure of how close is set \textbf{R} to set \textbf{O}. Ideally, if our algorithm is able to find a set such that \textbf{R} = \textbf{O} then the \textit{perceptual naturalness} will be maximum and the \textit{cost of naturalness} would be 0. \textit{Cost of naturalness} quantifies naturalness factor. As defined in SPRWeb, \textit{cost of naturalness} can be quantified using the following expression:
 
 \begin{figure}[!htb]
   \centering
@@ -89,10 +89,10 @@ One such tool which preserves naturalness and improves color differentiability i
 
 
 
-Lab color space is explained in the next section. A \textit{low} value of \textit{pn} is highly desirable. A \textit{low} value of \textit{pn} as compared to a high value, essentially tells us that the recolored web page having \textit{low} value is closer to original web page in terms of colors. 
+Lab color space [15][16] is explained in the next section. A \textit{low} value of \textit{pn} is highly desirable. A \textit{low} value of \textit{pn} as compared to a high value, essentially tells us that the recolored web page having \textit{low} value is closer to original web page in terms of colors. 
 Optimizing the value of \textit{pn} while computing the recolored set \textbf{R} makes sure that the recolored version does not have abrupt colors as compared to the original version. 
 
-\item{\textbf{Perceptual differentiability[SPRweb]: }} This factor maintains the differentiability among colors belonging to a pair in the original web page. Suppose the original web page has only one color pair, i.e size of \textbf{P} is 1. And the pair is \textit{(Red,White)}, then the recolored pair should have colors such that the difference in original pair should be maintained to its best possible extent. This factor can be quantified using the following equation:
+\item{\textbf{Perceptual differentiability[6]: }} This factor maintains the differentiability among colors belonging to a pair in the original web page. Suppose the original web page has only one color pair, i.e size of \textbf{P} is 1. And the pair is \textit{(Red,White)}, then the recolored pair should have colors such that the difference in original pair should be maintained to its best possible extent. This factor can be quantified using the following equation:
 
 
 
@@ -109,7 +109,7 @@ Optimizing the value of \textit{pn} while computing the recolored set \textbf{R}
   \end{tabular}
 \end{figure}
 
-\item{\textbf{Subjective naturalness[SPRweb]: }} We need this factor in optimizing function to keep the subjective responses of users as is. For example, using this in optimization we can keep \textit{warm} colors \textit{warm} or \textit{heavy} colors \textit{heavy}. We are using subjective response model developed by [Ou et all] to compute the subjectivity factor. To preserve subjectivity of colors in original web page, we use \textit{subjective response space}. We discuss \textit{subjective response space} in detail in future sections. Subjective naturalness cost can be quantified as follows:
+\item{\textbf{Subjective naturalness[6]: }} We need this factor in optimizing function to keep the subjective responses of users as is. For example, using this in optimization we can keep \textit{warm} colors \textit{warm} or \textit{heavy} colors \textit{heavy}. We are using subjective response model developed by Ou [11] to compute the subjectivity factor. To preserve subjectivity of colors in original web page, we use \textit{subjective response space}. We discuss \textit{subjective response space} in detail in future sections. Subjective naturalness cost can be quantified as follows:
 
 \begin{figure}[!htb]
   \centering
@@ -120,7 +120,7 @@ Optimizing the value of \textit{pn} while computing the recolored set \textbf{R}
   \end{tabular}
 \end{figure}
 
-\item{\textbf{Subjective differentiability[SPRweb]: }} Similar to perceptual differentiability, subjective differentiability should be maintained among pairs of colors parsed from original web page. We again use \textit{subjective response space} to quantify this factor as follows:
+\item{\textbf{Subjective differentiability[6]: }} Similar to perceptual differentiability, subjective differentiability should be maintained among pairs of colors parsed from original web page. We again use \textit{subjective response space} to quantify this factor as follows:
 
 \begin{figure}[!htb]
   \centering
@@ -142,7 +142,7 @@ Where $W_{ii}'s$ are weights corresponding to the factors. We can choose any val
 \section{Color spaces}
 \label{color spaces}
 
-\item{\textbf{Lab color space: }} A Lab color space is a color-opponent space with dimension L for lightness and a and b for the color-opponent dimensions, based on nonlinearly compressed CIE XYZ color space coordinates. The three coordinates of CIELAB represent the lightness of the color (L\textsuperscript{*} = 0 yields black and L\textsuperscript{*} = 100 indicates diffuse white; specular white may be higher), its position between red/magenta and green (a\textsuperscript{*}, negative values indicate green while positive values indicate magenta) and its position between yellow and blue (b\textsuperscript{*}, negative values indicate blue and positive values indicate yellow)[wikipedia]. The range of the three coordinates is as follows:
+\item{\textbf{Lab color space [15][16]: }} A Lab color space is a color-opponent space with dimension L for lightness and a and b for the color-opponent dimensions, based on nonlinearly compressed CIE XYZ color space coordinates. The three coordinates of CIELAB represent the lightness of the color (L\textsuperscript{*} = 0 yields black and L\textsuperscript{*} = 100 indicates diffuse white; specular white may be higher), its position between red/magenta and green (a\textsuperscript{*}, negative values indicate green while positive values indicate magenta) and its position between yellow and blue (b\textsuperscript{*}, negative values indicate blue and positive values indicate yellow). The range of the three coordinates is as follows:
 \begin{figure}[!htb]
   \centering
 \begin{tabular}{@{}>{$}l<{$}l@{}}
@@ -159,7 +159,7 @@ Where $W_{ii}'s$ are weights corresponding to the factors. We can choose any val
 \item{One of the most important attributes of the L\textsuperscript{*}a\textsuperscript{*}b\textsuperscript{*}-model is device independence. This means that the colors are defined independent of their nature of creation or the device they are displayed on. The L\textsuperscript{*}a\textsuperscript{*}b\textsuperscript{*} color space is used e.g. in Adobe Photoshop when graphics for print have to be converted from RGB to CMYK, as the L\textsuperscript{*}a\textsuperscript{*}b\textsuperscript{*} gamut includes both the RGB and CMYK gamut.}
 \end{itemize}
 
-\item{\textbf{Subjective response space: }} \textit{Subjective response space} consists of three dimensions which can be formulated as follows using [Ou et all] model:
+\item{\textbf{Subjective response space [11] : }} \textit{Subjective response space} consists of three dimensions which can be formulated as follows using Ou's model [11]:
 
 
 \begin{figure}[!htb]
@@ -197,3 +197,39 @@ Hue:
 \end{itemize}
 
 
+\section{Range of value distribution for the four types of costs}
+\label{Range}
+\begin{itemize}
+\item{\textbf{Perceptual Naturalness}} - Cost depends on number of colors N. We also scale it by N thus we can write the range as $[0, Max_distance]$. Where $Max_distance$ is 372.86. (The maximum distance possible in two points in CIELAB space)
+
+\item{\textbf{Perceptual Differentiability}} - Again the cost depends on number of colors N. We also scale it by $N*(N-1)$ thus we can write the range as $[0, Max_distance]$. Where $Max_distance$ is 372.86. (The maximum distance possible in two points in CIELAB space)
+
+\item{\textbf{Pair Differentiability}} - The cost depends on the number of pair-colors in the web page. As shown earlier in the document, number of pairs were similar to number of colors in web page. Thus we can write range as $[0, N*Max_distance]$. Where $Max_distance$ is 372.86. (The maximum distance possible in two points in CIELAB space)
+
+\item{\textbf{Activity}} $[-2.1, 8.28]$
+
+\item{\textbf{Temperature}} $[-5.66, 4.66]$
+
+\item{\textbf{Weight}} $[-2.25, 2.65]$
+
+\item{\textbf{Subjective naturalness}} Cost depends on number of colors N. We also scale it by N thus we can write the range as $[0, Max_sdistance]$. Where $Max_sdistance$ is 15.43. (The maximum distance possible in two points in subjective response space)
+
+\item{\textbf{Subjective differentiability}} Again the cost depends on number of colors N. We also scale it by $N*(N-1)$ thus we can write the range as $[0, Max_sdistance]$. Where $Max_sdistance$ is 15.43. (The maximum distance possible in two points in subjective response space)
+
+\item{\textbf{Subjective pair differentiability}} The cost depends on the number of $pair-colors$ in the web page. As shown earlier in the document, number of pairs were similar to number of colors in web page. Thus we can write range as $[0, N*Max_sdistance]$. Where $Max_sdistance$ is 15.43. (The maximum distance possible in two points in subjective response space)
+
+\end{itemize}
+
+
+
+\section{Difference between contrast and pair-differentiability}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{comparison.png}
+\caption{Contrast vs Pair-differentiability}
+\label{fig:test}
+\end{figure}
+
+\bibliographystyle{plain}
+\bibliography{sampleBibliography}

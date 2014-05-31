@@ -75,8 +75,8 @@ For theoretical subjective response, we followed the same procedure as in the ca
 Based on this theoretical analysis, we show that our tool brings time complexity improvements in SPRWeb (derived theoretically), without a decline in its performance quantitatively.  
 
 
-\section{Pair-wised approach}
-\label{Pair-wised apporach}
+\section{FBRecolor}
+\label{FBRecolor}
 
 To evaluate our approach mentioned in section 3.2, we did analysis with two types of web pages - simple web pages and complex web pages. 
 
@@ -108,7 +108,7 @@ Our tool and SPRWeb were compared this time on same metrics that were followed i
 
 
 \begin{table}[!htb]
-\caption{Evaluation: Our approach (numbers in scaled CIELAB euclidean distance)}
+\caption{Evaluation: FBRecolor (numbers in scaled CIELAB euclidean distance)}
 % title of Table
 \centering
 % used for centering table
@@ -163,7 +163,7 @@ A comparison graph is given in Fig 4.4 (perceptual) and Fig 4.5(subjective).
 We also randomly generated 10 simple web pages to compare our tool with SPRWeb. The data is given in Table 4.3.
 
 \begin{table}[!htb]
-\caption{Evaluation: Our approach (numbers in scaled CIELAB euclidean distance)}
+\caption{Evaluation: FBRecolor (numbers in scaled CIELAB euclidean distance)}
 % title of Table
 \centering
 % used for centering table
@@ -245,7 +245,7 @@ To test our tool further, we selected 18 more random complex pages and did analy
 
 
 \begin{table}[!htb]
-\caption{Evaluation: Our approach (numbers in scaled CIELAB euclidean distance)}
+\caption{Evaluation: FBRecolor (numbers in scaled CIELAB euclidean distance)}
 % title of Table
 \centering
 % used for centering table
@@ -288,7 +288,7 @@ Complex 14&13&10&16.76&17.6&41.62&0.09&0.78&0.82&0.82&0.06\\[1ex]
 
 
 \begin{table}[!htb]
-\caption{Evaluation: Our approach (numbers in scaled CIELAB euclidean distance)}
+\caption{Evaluation: FBRecolor (numbers in scaled CIELAB euclidean distance)}
 % title of Table
 \centering
 % used for centering table
@@ -451,7 +451,7 @@ Results show that our tool successfully induces contrast in the color pairs. Tho
 Similarly in simple 2, the contrast in (middle,background) is better than that of SPRWeb. All these observations are also supported by numerical data present in Table 4.6.
 
 \begin{table}[!htb]
-\caption{Evaluation: Our approach (numbers in scaled CIELAB euclidean distance)}
+\caption{Evaluation: FBRecolor (numbers in scaled CIELAB euclidean distance)}
 % title of Table
 \centering
 % used for centering table
@@ -483,3 +483,98 @@ Page & CRP1S & CRP1O & CRP2S & CRP2O & N-S & N-t & D-S & D-t & SN-S & SN-t & SD-
   \end{tabular}
 % is used to refer this table in the text
 \end{table}
+
+\begin{table}[!htb]
+\caption{Evaluation: FBRecolor extension(numbers in scaled CIELAB euclidean distance)}
+% title of Table
+\centering
+% used for centering table
+\begin{tabular}{c c c c c c c c c c c c c}
+% centered columns (4 columns)
+\hline\hline
+%inserts double horizontal lines
+Web Page & C\# & P\# & FP\#S & FP\#t & N-S & N-t & D-S & D-t & SN-S & SN-t & SD-S & SD-t\\ [0.5ex]
+% inserts table
+%heading
+\hline
+Complex 1&5&3&2&0&38.7&22.59&2.49&38.79&1.09&2.91&0.72&1.1\\
+Complex 2&10&9&5&0&31&22.7&40.7&31&2.9&3.45&0.87&0.9\\
+Complex 3&12&11&3&0&44.2&56.7&133.05&44.21&6.33&6.63&1.41&2.1\\
+Complex 4&16&17&9&0&51.8&22.2&36.8&51.8&4.6&8.49&0.89&1.1\\
+Complex 5&8&7&5&0&0.5&52.68&69.48&0.54&7.41&3.09&1.62&1.7\\
+Complex 6&11&9&4&0&34.1&14.82&0.48&34.14&5&6.77&0.48&1.1\\
+Complex 7&15&8&7&0&38.9&23.14&1.89&38.91&0.91&3.77&1.17&1.4\\
+Complex 8&11&12&3&0&47.9&7.19&0.56&47.94&0.73&4.88&0.2&0.3\\
+Complex 9&8&10&6&0&0.7&11.01&20.98&0.79&0.39&4.37&0.83&0.8\\
+Complex 10&15&11&7&0&0.6&38.12&61.53&0.69&4.6&8.63&1.41&1.6\\
+Complex 11&8&9&2&0&27.6&19.38&2.34&27.61&0.49&4.45&0.61&1.1\\
+Complex 12&16&17&14&0&142.6&36.64&14.98&142.64&6.35&15.5&0.87&1.7\\
+Complex 13&13&15&4&0&17.9&14.27&0.71&17.93&1.01&7.35&0.1&0.6\\
+Complex 14&16&12&6&0&153.4&10.6&0.089&153.41&0.029&9.95&0.003&0.5\\
+Complex 15&10&9&7&0&50.7&28.06&1.21&50.73&1.6&6.79&0.99&1.4\\
+Complex 16&16&10&2&0&52.1&54.79&26.85&52.11&1.23&8.39&1.09&1.5\\
+Complex 17&3&3&1&0&14.6&5.34&0.32&14.66&0.06&1.28&0.09&0.4\\
+Complex 18&16&11&8&0&147.2&16.6&0.24&147.29&1.35&13.5&0.16&0.9\\[1ex]
+\hline
+%inserts single line
+\end{tabular}
+\label{table:nonlin}
+\begin{tabular}{@{}>{$}l<{$}l@{}}
+    $FP\#S\#$ & number of pairs having contrast less than 4.5 in SPRWeb recolored version \\
+    $FP\#t\#$ & number of pairs having contrast less than 4.5 in FBRecolor recolored version \\
+    $S$ & SPRWeb\\
+    $t$ & Our tool developed on parsing pairs of colors concept\\
+    $N$ & Naturalness\\
+    $D$ & Differentiability\\
+    $SN$ & Subjective Naturalness\\
+    $SD$ & Subjective Differentiability\\
+  \end{tabular}
+% is used to refer this table in the text
+\end{table}
+
+
+
+\begin{table}[!htb]
+\caption{Evaluation: FBRecolor extension(numbers in scaled CIELAB euclidean distance)}
+% title of Table
+\centering
+% used for centering table
+\begin{tabular}{c c c c c c c c c c c c c}
+% centered columns (4 columns)
+\hline\hline
+%inserts double horizontal lines
+Web Page & C\# & P\# & FP\#S & FP\#t & N-S & N-t & D-S & D-t & SN-S & SN-t & SD-S & SD-t\\ [0.5ex]
+% inserts table
+%heading
+\hline
+
+Complex 1&12&9&5&0&10.28&19.17&5.08&79.78&1.29&7.41&0.73&1.09\\
+Complex 2&4&3&0&0&9.15&11.73&0.24&0.14&0.41&0.26&0.28&0.46\\
+Complex 3&6&4&3&0&7.88&18.36&5.12&25.82&0.31&2.35&0.3&0.81\\
+Complex 4&6&4&4&0&10.78&34.52&0.079&9.39&0.35&3.28&0.28&1.3\\
+Complex 5&7&4&2&0&10.19&20.09&2.63&6.08&1.38&1.68&0.92&1.36\\
+Complex 6&22&22&15&0&21.57&26.23&67.46&249.43&7.35&21.46&1.39&1.61\\
+Complex 7&5&4&2&0&34.81&56.56&22.7&25.31&1.1&2.32&1.85&3.07\\
+Complex 8&7&5&5&0&32.5&42.54&28.22&0.47&2.25&2.69&1.57&2.13\\
+Complex 9&6&5&4&0&13.09&13.75&17.25&67.09&1.68&3.5&0.71&0.84\\
+Complex 10&13&9&1&0&25.12&56&9.88&20.44&0.87&3.16&3.28&1.71\\
+Complex 11&9&7&4&0&13.56&26.2&1.62&49.14&0.77&6.65&1.21&1.42\\
+Complex 12&13&10&9&0&16.76&40.32&41.62&141.63&0.78&8.78&0.82&1.66\\[1ex]
+\hline
+%inserts single line
+\end{tabular}
+\label{table:nonlin}
+\begin{tabular}{@{}>{$}l<{$}l@{}}
+    $FP\#S\#$ & number of pairs having contrast less than 4.5 in SPRWeb recolored version \\
+    $FP\#t\#$ & number of pairs having contrast less than 4.5 in FBRecolor recolored version \\
+    $S$ & SPRWeb\\
+    $t$ & Our tool developed on parsing pairs of colors concept\\
+    $N$ & Naturalness\\
+    $D$ & Differentiability\\
+    $SN$ & Subjective Naturalness\\
+    $SD$ & Subjective Differentiability\\
+  \end{tabular}
+% is used to refer this table in the text
+\end{table}
+
+We can observe that cost corresponding to all the factors is increasing. Perceptual differentiability, particularly, suffers a lot as compared to other factors. It can attributed to the fact that in our three step algorithm, we are reducing the size of search space for background color. Search space is being reduced because we are taking only those colors which have a contrast ratio of greater than 4.5 with foreground color.  

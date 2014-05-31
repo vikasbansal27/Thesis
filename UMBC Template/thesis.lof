@@ -1,31 +1,32 @@
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Ishihara Test [Wikipedia]\relax }}{6}
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Sample Look Up Table (LUT)\relax }}{14}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Example of conflict\relax }}{15}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Sample Look Up Table (LUT)\relax }}{15}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Color Palette\relax }}{16}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Recoloring leading to bad contrast\relax }}{23}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Luminance plot for DTEP\relax }}{25}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces contrast plot for DTEP\relax }}{26}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces SortedLuminancePlot\relax }}{27}
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Sorted contrast plot\relax }}{28}
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Only starting point included\relax }}{29}
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Both starting and ending points included\relax }}{29}
-\contentsline {figure}{\numberline {3.12}{\ignorespaces Only ending point included\relax }}{30}
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Perceptual factors comparison\relax }}{49}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Subjective factors comparison\relax }}{50}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Simple web pages\relax }}{51}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Perceptual comparison\relax }}{51}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Subjective comparison\relax }}{53}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Perceptual comparison\relax }}{53}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Subjective comparison\relax }}{55}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Total cost comparison for general pages\relax }}{55}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Total cost comparison for random pages\relax }}{56}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Perceptual comparison for general complex pages\relax }}{58}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Subjective comparison for general complex pages\relax }}{58}
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Perceptual comparison for random complex pages\relax }}{59}
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Subjective comparison for random complex pages\relax }}{59}
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Total cost comparison for general complex pages\relax }}{60}
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Total cost comparison for random complex pages\relax }}{61}
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Simple web pages for testing\relax }}{61}
-\contentsline {figure}{\numberline {4.17}{\ignorespaces Recoloring simple web page 1(notice the contrast between top bar and background)\relax }}{63}
-\contentsline {figure}{\numberline {4.18}{\ignorespaces Recoloring simple web page 2(notice the contrast between middle bars and the background)\relax }}{63}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Ishihara Test\relax }}{6}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Contrast vs Pair-differentiability\relax }}{13}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Sample Look Up Table (LUT)\relax }}{16}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Example of conflict\relax }}{17}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Sample Look Up Table (LUT)\relax }}{18}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Color Palette\relax }}{19}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Recoloring leading to bad contrast\relax }}{25}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Luminance plot for DTEP\relax }}{28}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces contrast plot for DTEP\relax }}{29}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces SortedLuminancePlot\relax }}{30}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Sorted contrast plot\relax }}{31}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Only starting point included\relax }}{32}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Both starting and ending points included\relax }}{32}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Only ending point included\relax }}{33}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Perceptual factors comparison\relax }}{52}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Subjective factors comparison\relax }}{53}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Simple web pages\relax }}{54}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Perceptual comparison\relax }}{54}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Subjective comparison\relax }}{56}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Perceptual comparison\relax }}{56}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Subjective comparison\relax }}{58}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Total cost comparison for general pages\relax }}{58}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Total cost comparison for random pages\relax }}{59}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Perceptual comparison for general complex pages\relax }}{61}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Subjective comparison for general complex pages\relax }}{61}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Perceptual comparison for random complex pages\relax }}{62}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Subjective comparison for random complex pages\relax }}{62}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Total cost comparison for general complex pages\relax }}{63}
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Total cost comparison for random complex pages\relax }}{64}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Simple web pages for testing\relax }}{64}
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Recoloring simple web page 1(notice the contrast between top bar and background)\relax }}{66}
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Recoloring simple web page 2(notice the contrast between middle bars and the background)\relax }}{66}

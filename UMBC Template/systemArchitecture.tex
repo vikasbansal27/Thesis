@@ -3,7 +3,7 @@
 
 
 \label{System Architecture}
-In this chapter, we are going to present the approaches that we took to solve the problem in hand and then we will finally present our algorithm to recolor web pages.
+In this chapter, we are going to present the approaches that we took to solve the problem in hand and then we will finally present our algorithm, FBRecolor,  to recolor web pages.
 
 \section{Initial thoughts and approaches}
 \label{Initial approaches}
@@ -411,7 +411,7 @@ We developed following algorithm implementing approach mentioned in SPRWeb to co
 \end{algorithm}
 
 
-\subsubsection{Performance Improvement in SPRWeb} 
+\subsection{Performance Improvement in SPRWeb} 
 \label{Improvement in SPRWeb}
 
 
@@ -481,19 +481,28 @@ O(n).
 
 \end{itemize}
 
-\section{Our Approach}
-\label{Our Approach}
+\section{FBRecolor}
+\label{FBRecolor}
 While browsing the content on-line, specially reading, color of the text and the background are of key significance. Contrast between those two colors is one of the several important factors among other factors as mentioned in Definitions sections. SPRWeb tries to optimize the cost corresponding to perceptual naturalness, perceptual differentiability, subjective naturalness and subjective differentiability for the entire parsed set of colors. But at the very instant when user is reading a particular element of a web page, he/she may not be concerned about the other elements of the page. Therefore, we can optimize the cost corresponding to various factors for a particular element of the web page first and then repeat the same process for all the remaining elements. 
 
 
+\subsection{Key idea} % (fold)
+\label{Key idea}
+
+% subsection subsection_name (end)
 The idea is that while optimizing the various factors for a particular element rather than the whole web page, we will have more color options to choose from and thus the possibility of doing quantitatively better.
 
 
 We divide a web page in elements based on the foreground-background color combination. For example, if a web page has two division elements, each having one color for background and one for the foreground text color, then the web page has two elements to be processed. Each element having one foreground-background(fg-bg) color pair. We define, a color pair as a combination of foreground and background for a particular element on a page.
 
-Initial step of our algorithm parses out such fg-bg color pairs. Such fg-bg color pairs can be extracted by analysis of HTML Document Object Model(DOM) structure and CSS files. One of the possible implementations is shown later in the section. Once we have all the the color pairs parsed out, we perform our algorithm on each of the color pair. Pseudo code of the algorithm is given in Algorithm 10. A textual description is as follows:
+Initial step of our algorithm parses out such fg-bg color pairs. Such fg-bg color pairs can be extracted by analysis of HTML Document Object Model(DOM) structure and CSS files. One of the possible implementations is shown later in the section. Once we have all the the color pairs parsed out, we perform our algorithm on each of the color pair. Pseudo code of the algorithm is given in Algorithm 10. A textual description is given in next section.
 
-\textbf{OurApproach} defines our tool. The input is the CSS file corresponding to the web page and the Document Object Model(DOM) of the web page. Output is a CSS file which is recolored using our tool. \textbf{OurApproach} calls \textbf{NewCSSParser} whose input is also a CSS file and the DOM structure. The output is the pairs of foreground-background colors present in the CSS file. Procedure like \textbf{NewCSSParser} can be implemented by analyzing the DOM model and the CSS file both. 
+\subsection{Implementation} % (fold)
+\label{Implementation}
+
+% subsection su (end)
+
+\textbf{FBRecolor} defines our tool. The input is the CSS file corresponding to the web page and the Document Object Model(DOM) of the web page. Output is a CSS file which is recolored using our tool. \textbf{FBRecolor} calls \textbf{NewCSSParser} whose input is also a CSS file and the DOM structure. The output is the pairs of foreground-background colors present in the CSS file. Procedure like \textbf{NewCSSParser} can be implemented by analyzing the DOM model and the CSS file both. 
 
 
 In the CSS file, we can read the contents as a string and use regular expressions to parse the IDs and classes which it has and their corresponding colors in block.A mapping can be maintained which has IDs and .class as keys and a list as value. List contains the color properties(foreground and background) in that ID or class.
@@ -521,9 +530,9 @@ If a color is present only in Foreground and Background then we just put replace
 After obtaining the replacement color list, we rewrite the CSS files reflecting new colors. 
 
 \begin{algorithm}[!htb]
-\caption{OurApproach}\label{Our Approach}
+\caption{FBRecolor}\label{Our Approach}
 \begin{algorithmic}[1]
-\Procedure{OurApproach(CSSFile,DOM)}{}
+\Procedure{FBRecolor(CSSFile,DOM)}{}
 \State ${Foreground,Background,ColorMap} \gets \textit{NewCSSParser(CSSFile,DOM)}$
 \State $ColorsOrig \gets HexToCIELab(Foreground \textbf{U} Background)$
 \For{$j \gets 1\textrm{ to } Foreground.length$}
@@ -552,7 +561,7 @@ After obtaining the replacement color list, we rewrite the CSS files reflecting 
 
 
 \begin{algorithm}[!htb]
-\caption{OurApproach:continue}\label{Our Approach:continue}
+\caption{FBRecolor:continue}\label{FBRecolor:continue}
 \begin{algorithmic}[1]
 \algrestore{myalg}
 \Procedure{FindRecolor(fg,bg)}{}
@@ -804,7 +813,7 @@ The mapping can be obtained using the procedure in Algorithm 12.
 Using the mapping obtained from Algorithm 13, we can modify procedure \textbf{FindRecolor} in Algorithm 11 as shown in Algorithm 14. 
 
 \begin{algorithm}[!htb]
-\caption{OurApproach:Modified}\label{Minimum contrast included}
+\caption{FBRecolor:Modified}\label{Minimum contrast included}
 \begin{algorithmic}[1]
 \Procedure{FindRecolor(fg,bg)}{}
 \State $minDist = MAXINF$
@@ -842,7 +851,7 @@ Using the mapping obtained from Algorithm 13, we can modify procedure \textbf{Fi
 \end{algorithm}
 
 \begin{algorithm}[!htb]
-\caption{OurApproach:Modified}\label{Minimum contrast included}
+\caption{FBRecolor:Modified}\label{Minimum contrast included}
 \begin{algorithmic}[1]
 \algrestore{myalg}
 \For{$j \gets 1\textrm{ to } possibleSet$}
@@ -857,3 +866,4 @@ Using the mapping obtained from Algorithm 13, we can modify procedure \textbf{Fi
 \end{algorithm}
 
 Algorithm 14 describes a one possible heuristic to obtain a output color set using the mapping. The heuristic is such that when we recolor a pair lets say fg-bg, and we have many possible replacements for fg. Then out of those possible replacements of fg, we choose a a replacement such that the length of the list in \textit{mapping} is maximum. In other words, we choose a value for fg such that we have a large number of option for bg. This gives us a possibility of reaching to a better solution in terms of naturalness and differentiability, since we have many options available. This is one possible heuristic to reach to the solution, several others heuristics can also be implemented. 
+

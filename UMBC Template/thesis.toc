@@ -1,7 +1,7 @@
 \contentsline {chapter}{\uppercase {Dedication}}{ii}
 \contentsline {chapter}{\uppercase {ACKNOWLEDGMENTS}}{iii}
-\contentsline {chapter}{\uppercase {List of Figures}}{vi}
-\contentsline {chapter}{\uppercase {List of Tables}}{viii}
+\contentsline {chapter}{\uppercase {List of Figures}}{vii}
+\contentsline {chapter}{\uppercase {List of Tables}}{ix}
 \contentsline {chapter}{\numberline {Chapter{} 1}\uppercase {Introduction}}{1}
 \contentsline {chapter}{\numberline {Chapter{} 2}\uppercase {Background and Related Work}}{3}
 \addvspace {10pt}
@@ -10,23 +10,33 @@
 \contentsline {section}{\numberline {2.3}Related Work}{5}
 \contentsline {section}{\numberline {2.4}Definitions}{7}
 \contentsline {section}{\numberline {2.5}Color spaces}{10}
-\contentsline {chapter}{\numberline {Chapter{} 3}\uppercase {System Architecture}}{13}
+\contentsline {section}{\numberline {2.6}Range of value distribution for the four types of costs}{12}
+\contentsline {section}{\numberline {2.7}Difference between contrast and pair-differentiability}{13}
+\contentsline {chapter}{\uppercase {References}}{14}
+\contentsline {chapter}{\numberline {Chapter{} 3}\uppercase {System Architecture}}{15}
 \addvspace {10pt}
-\contentsline {section}{\numberline {3.1}Initial thoughts and approaches}{13}
-\contentsline {subsection}{\numberline {3.1.1}How to obtain safe colors?}{16}
-\contentsline {subsubsection}{Limitations of this approach}{17}
-\contentsline {subsection}{\numberline {3.1.2}SPRWeb}{17}
-\contentsline {subsubsection}{Performance Improvement in SPRWeb}{18}
-\contentsline {section}{\numberline {3.2}Our Approach}{19}
-\contentsline {section}{\numberline {3.3}Maintaining minimum contrast}{22}
-\contentsline {subsection}{\numberline {3.3.1}W3C guidelines}{23}
-\contentsline {subsection}{\numberline {3.3.2}Including W3C guidelines in our approach}{25}
-\contentsline {subsection}{\numberline {3.3.3}Implementation}{30}
-\contentsline {chapter}{\numberline {Chapter{} 4}\uppercase {Evaluation}}{47}
+\contentsline {section}{\numberline {3.1}Initial thoughts and approaches}{15}
+\contentsline {subsection}{\numberline {3.1.1}How to obtain safe colors?}{18}
+\contentsline {subsubsection}{Limitations of this approach}{19}
+\contentsline {subsection}{\numberline {3.1.2}SPRWeb}{20}
+\contentsline {subsection}{\numberline {3.1.3}Performance Improvement in SPRWeb}{20}
+\contentsline {section}{\numberline {3.2}FBRecolor}{22}
+\contentsline {subsection}{\numberline {3.2.1}Key idea}{22}
+\contentsline {subsection}{\numberline {3.2.2}Implementation}{23}
+\contentsline {section}{\numberline {3.3}Maintaining minimum contrast}{25}
+\contentsline {subsection}{\numberline {3.3.1}W3C guidelines}{26}
+\contentsline {subsection}{\numberline {3.3.2}Including W3C guidelines in our approach}{27}
+\contentsline {subsection}{\numberline {3.3.3}Implementation}{31}
+\contentsline {chapter}{\numberline {Chapter{} 4}\uppercase {Evaluation}}{50}
 \addvspace {10pt}
-\contentsline {section}{\numberline {4.1}Improvements in SPRWeb}{47}
-\contentsline {section}{\numberline {4.2}Pair-wised approach}{50}
-\contentsline {subsection}{\numberline {4.2.1}Simple web pages}{50}
-\contentsline {subsection}{\numberline {4.2.2}Complex web pages}{54}
-\contentsline {section}{\numberline {4.3}Minimum Contrast}{58}
-\contentsline {chapter}{\numberline {Chapter{} 5}\uppercase {conclusion and future work}}{65}
+\contentsline {section}{\numberline {4.1}Improvements in SPRWeb}{50}
+\contentsline {section}{\numberline {4.2}FBRecolor}{53}
+\contentsline {subsection}{\numberline {4.2.1}Simple web pages}{53}
+\contentsline {subsection}{\numberline {4.2.2}Complex web pages}{57}
+\contentsline {section}{\numberline {4.3}Minimum Contrast}{61}
+\contentsline {chapter}{\numberline {Chapter{} 5}\uppercase {conclusion and future work}}{70}
+\addvspace {10pt}
+\contentsline {section}{\numberline {5.1}Some limitations and possible ways to handle them}{70}
+\contentsline {section}{\numberline {5.2}Future Work}{72}
+\contentsline {chapter}{\numberline {Chapter{} 6}\uppercase {References}}{73}
+\contentsline {chapter}{\uppercase {References}}{76}

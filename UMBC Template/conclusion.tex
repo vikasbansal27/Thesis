@@ -3,6 +3,32 @@
 
 \label{Conclusion and future work}
 
+
+\section{Some limitations and possible ways to handle them}
+\label{limitations}
+
+
+\begin{itemize}
+\item{} Current method involves the optimization function, where equal weights are given to all the four factors. But as observed, values of perceptual factors are around 20 times greater than the value of subjective response factors. A little gain in cost corresponding to perceptual factors can overshadow the significant loss in subjective response factors.
+
+
+Addressing this problem depends on the user. If the person, trying to recolor web pages, wants to give more preference to subjective factors than the perceptual factors, then it can provide more weight to subjective response factors. Or in our case, it can search for solutions in subjective response space, preserving the subjective factors. 
+
+\item{} Current method does significantly better than SPRweb in preserving differentiability across foreground-background color pairs. But suffers in preserving naturalness as compared to SPRWeb.  
+
+
+One possible way to preserve naturalness could be to find replacements of both foreground and background color such that the replacement are as close to the originals as possible. But as tried and tested, this implementation results in lower preservation of differentiability. An approach to optimize both naturalness and differentiability could be to try to find a replacement for background, in the third step, such that the summation of cost (naturalness and differentiability) is as minimum as possible.In FBRecolor, in the first step we find fg’ as a replacement of fg such that the distance between fg and fg’ is as minimum as possible. In the second step, we find a possible set for replacement of bg such that the differentiability is maintained. And in the final step we chose a replacement bg’ such that it is as close to bg as possible. In our new possibility, to improve naturalness and differentiability, we can include both the factors as constraint in third step of the algorithm to find a replacement for bg.
+
+
+\item{}In the modified algorithm, where we include the minimum contrast threshold, the cost corresponding to naturalness and differentiability increases as compared to the non-modified algorithm. In our modified algorithm, we use a mapping corresponding to a replacement fg’ of fg such that the elements of mapping have a contrast ratio of more than 4.5 with fg’. In this we can modify the criteria to find the mapping, by including some distance metrics. And while finding replacements we can include those distance metrics in our equation. The distance metric could be something which could give a sense of location the point being considered. For example, consider a color fg, we create a mapping such that the set has all the colors which when paired with fg give a contrast of more than 4.5. The set that we develop can have one more characteristic per color. That characteristic can include some location sense of that color with respect to some point such as origin(L*=0, a=0, b=0). We can use this location information in our optimization equation such that we can choose points which have better cost values. How to use that location information is still a matter of discussion. 
+
+\end{itemize}
+
+\section{Future Work} % (fold)
+\label{sec:future_work}
+
+% section future_work (end)
+
 To enable CVD users to have a similar web experience as normal users, we proposed an algorithm based on pair-wised parsing of colors from the web page. We also present a modification to our algorithm to ensure that the replacement color pairs have at least a contrast ratio of 4.5:1 as suggested by W3C guidelines.
 
 In future, we plan to extend our tool to include image recoloring as well and develop a browser plug in for it. To deal with images, we will have to incorporate image processing techniques in our current tool. In our algorithm, we parse all the color pairs and find their replacement one by one. Instead, we can explore parallel computing concepts to save us some computation time. Saving computational time would positively support our algorithm in being a browser plug in. We can also extend our modification of algorithm, where we ensure the contrast of 4.5, to normal users. For example, if there are some web pages which have bad contrast in foreground-background color pairs, then our tool would be able to detect and correct the same.   
